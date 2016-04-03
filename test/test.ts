@@ -1,3 +1,8 @@
+/**
+ * Some source code to check if the declaration files is ok.
+ * 
+ */ 
+
 function createRandomRows(rowCount) {
   var rowData = [];
   var now = new Date().getTime();
@@ -12,7 +17,7 @@ function createRandomRows(rowCount) {
 
 
 // window
-var win = new qx.ui.window.Window("Table").set({
+var win = new qx.ui.window.Window("Table", null).set({
   layout : new qx.ui.layout.Grow(),
   allowClose: false,
   allowMinimize: false,

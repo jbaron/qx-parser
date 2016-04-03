@@ -668,3 +668,6 @@ qx.util.placement.Placement.json
 qx.xml.Document.json
 qx.xml.Element.json
 qx.xml.String.json
+qx.ui.command.Command.json
+qx.ui.command.Group.json
+qx.ui.command.GroupManager.json

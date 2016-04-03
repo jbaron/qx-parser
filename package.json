@@ -1,0 +1,20 @@
+{
+  "name": "qx-parser",
+  "version": "1.0.0",
+  "description": "This application creates a TypeScript declaration file for Qooxdoo",
+  "author": "JBaron",
+  "scripts": {
+    "start": "node --harmony_destructuring --harmony_default_parameters lib/main.js",
+    "build": "tsc -p tsconfig.json"
+  },
+  "main": "lib/main.js",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/jbaron/qx-parser"
+  },
+  "bugs": {
+      "url": "https://github.com/jbaron/qx-parser/issues"
+  },
+  "keywords": [ "Qooxdoo", "TypeScript", "declaration file" ],
+  "license": "MIT"
+}
