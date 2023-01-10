@@ -1,0 +1,400 @@
+{
+  "className": "qx.log.appender.NodeConsole",
+  "packageName": "qx.log.appender",
+  "name": "NodeConsole",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0,
+        "index": 691
+      },
+      "end": {
+        "line": 147,
+        "column": 3,
+        "index": 3428
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Log appender for qooxdoo applications running in Node.js. Writes log\n messages to STDOUT/STDERR.</p>"
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "process.*"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "__OUT": {
+      "location": {
+        "start": {
+          "line": 32,
+          "column": 4,
+          "index": 795
+        },
+        "end": {
+          "line": 32,
+          "column": 15,
+          "index": 806
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>process.stdout</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__ERR": {
+      "location": {
+        "start": {
+          "line": 36,
+          "column": 4,
+          "index": 850
+        },
+        "end": {
+          "line": 36,
+          "column": 15,
+          "index": 861
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>process.stderr</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__useColors": {
+      "location": {
+        "start": {
+          "line": 41,
+          "column": 4,
+          "index": 918
+        },
+        "end": {
+          "line": 41,
+          "column": 22,
+          "index": 936
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether to use color codes</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "__colorCodes": {
+      "location": {
+        "start": {
+          "line": 46,
+          "column": 4,
+          "index": 1016
+        },
+        "end": {
+          "line": 52,
+          "column": 5,
+          "index": 1231
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Which ANSI color codes to use for which log level</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "setUseColors": {
+      "location": {
+        "start": {
+          "line": 58,
+          "column": 4,
+          "index": 1324
+        },
+        "end": {
+          "line": 61,
+          "column": 5,
+          "index": 1426
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Turn the use of colors on or off</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{Boolean} value"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "log": {
+      "location": {
+        "start": {
+          "line": 70,
+          "column": 4,
+          "index": 1698
+        },
+        "end": {
+          "line": 80,
+          "column": 5,
+          "index": 2034
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Writes a message to the shell. Errors will be sent to STDERR, everything\n else goes to STDOUT</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "logMessage {String} Message to be logged",
+            "paramName": "logMessage",
+            "description": " Message to be logged",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "level {String} Log level. One of \"debug\", \"info\", \"warn\", \"error\"",
+            "paramName": "level",
+            "description": " Log level. One of \"debug\", \"info\", \"warn\", \"error\"",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "debug": {
+      "location": {
+        "start": {
+          "line": 87,
+          "column": 4,
+          "index": 2147
+        },
+        "end": {
+          "line": 89,
+          "column": 5,
+          "index": 2209
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs a debug message</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "logMessage {String} Message to be logged",
+            "paramName": "logMessage",
+            "description": " Message to be logged",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "info": {
+      "location": {
+        "start": {
+          "line": 96,
+          "column": 4,
+          "index": 2322
+        },
+        "end": {
+          "line": 98,
+          "column": 5,
+          "index": 2382
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs an info message</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "logMessage {String} Message to be logged",
+            "paramName": "logMessage",
+            "description": " Message to be logged",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "warn": {
+      "location": {
+        "start": {
+          "line": 105,
+          "column": 4,
+          "index": 2497
+        },
+        "end": {
+          "line": 107,
+          "column": 5,
+          "index": 2557
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs a warning message</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "logMessage {String} Message to be logged",
+            "paramName": "logMessage",
+            "description": " Message to be logged",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "error": {
+      "location": {
+        "start": {
+          "line": 114,
+          "column": 4,
+          "index": 2671
+        },
+        "end": {
+          "line": 116,
+          "column": 5,
+          "index": 2733
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs an error message</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "logMessage {String} Message to be logged",
+            "paramName": "logMessage",
+            "description": " Message to be logged",
+            "type": "String"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "process": {
+      "location": {
+        "start": {
+          "line": 123,
+          "column": 4,
+          "index": 2871
+        },
+        "end": {
+          "line": 134,
+          "column": 5,
+          "index": 3196
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Process a log entry object from qooxdoo's logging system.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "entry {Map} Log entry object",
+            "paramName": "entry",
+            "description": " Log entry object",
+            "type": "Map"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 140,
+        "column": 2,
+        "index": 3241
+      },
+      "end": {
+        "line": 146,
+        "column": 3,
+        "index": 3424
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@ignore": [
+        {
+          "name": "@ignore",
+          "body": "process.*"
+        }
+      ]
+    }
+  },
+  "descendants": []
+}

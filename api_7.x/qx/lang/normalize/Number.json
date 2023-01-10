@@ -1,0 +1,71 @@
+{
+  "className": "qx.lang.normalize.Number",
+  "packageName": "qx.lang.normalize",
+  "name": "Number",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0,
+        "index": 763
+      },
+      "end": {
+        "line": 37,
+        "column": 3,
+        "index": 998
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>This class is responsible for the normalization of the native 'String' object.\n It checks if these methods are available and, if not, appends them to\n ensure compatibility in all browsers.\n For usage samples, check out the attached links.</p>"
+        }
+      ],
+      "@group": [
+        {
+          "name": "@group",
+          "body": "Polyfill"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "EPSILON": {
+      "location": {
+        "start": {
+          "line": 29,
+          "column": 4,
+          "index": 830
+        },
+        "end": {
+          "line": 29,
+          "column": 18,
+          "index": 844
+        }
+      },
+      "type": "variable",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 2,
+        "index": 853
+      },
+      "end": {
+        "line": 36,
+        "column": 3,
+        "index": 994
+      }
+    }
+  },
+  "descendants": []
+}

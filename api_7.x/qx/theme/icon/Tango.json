@@ -1,0 +1,50 @@
+{
+  "className": "qx.theme.icon.Tango",
+  "packageName": "qx.theme.icon",
+  "name": "Tango",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 0,
+        "index": 531
+      },
+      "end": {
+        "line": 27,
+        "column": 3,
+        "index": 636
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Tango icons</p>"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "aliases": {
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 2,
+        "index": 592
+      },
+      "end": {
+        "line": 26,
+        "column": 3,
+        "index": 632
+      }
+    },
+    "aliasMap": {
+      "icon": "qx/icon/Tango"
+    }
+  },
+  "descendants": []
+}

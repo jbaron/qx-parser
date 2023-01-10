@@ -1,0 +1,270 @@
+{
+  "className": "qx.core.MLogging",
+  "packageName": "qx.core",
+  "name": "MLogging",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 0,
+        "index": 578
+      },
+      "end": {
+        "line": 95,
+        "column": 3,
+        "index": 2668
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>This mixin offers the basic logging features offered by {@link qx.log.Logger}.</p>"
+        }
+      ]
+    }
+  },
+  "type": "mixin",
+  "members": {
+    "__Logger": {
+      "location": {
+        "start": {
+          "line": 25,
+          "column": 4,
+          "index": 694
+        },
+        "end": {
+          "line": 25,
+          "column": 27,
+          "index": 717
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@type": [
+          {
+            "name": "@type",
+            "body": "{Class} Pointer to the regular logger class"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "debug": {
+      "location": {
+        "start": {
+          "line": 34,
+          "column": 4,
+          "index": 940
+        },
+        "end": {
+          "line": 36,
+          "column": 5,
+          "index": 1007
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs a debug message.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "varargs {var} The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "paramName": "varargs",
+            "description": " The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "info": {
+      "location": {
+        "start": {
+          "line": 45,
+          "column": 4,
+          "index": 1230
+        },
+        "end": {
+          "line": 47,
+          "column": 5,
+          "index": 1295
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs an info message.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "varargs {var} The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "paramName": "varargs",
+            "description": " The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "warn": {
+      "location": {
+        "start": {
+          "line": 56,
+          "column": 4,
+          "index": 1520
+        },
+        "end": {
+          "line": 58,
+          "column": 5,
+          "index": 1585
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs a warning message.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "varargs {var} The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "paramName": "varargs",
+            "description": " The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "error": {
+      "location": {
+        "start": {
+          "line": 67,
+          "column": 4,
+          "index": 1809
+        },
+        "end": {
+          "line": 69,
+          "column": 5,
+          "index": 1876
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs an error message.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "varargs {var} The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "paramName": "varargs",
+            "description": " The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "trace": {
+      "location": {
+        "start": {
+          "line": 78,
+          "column": 4,
+          "index": 2128
+        },
+        "end": {
+          "line": 80,
+          "column": 5,
+          "index": 2195
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Logs an error message with the current stack trace</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "varargs {var} The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "paramName": "varargs",
+            "description": " The item(s) to log. Any number of arguments is\n supported. If an argument is not a string, the object dump will be\n logged.",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "__logMessage": {
+      "location": {
+        "start": {
+          "line": 89,
+          "column": 4,
+          "index": 2458
+        },
+        "end": {
+          "line": 93,
+          "column": 5,
+          "index": 2660
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Helper that calls the appropriate logger function with the current object\n and any number of items.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "level {String} The log level of the message",
+            "paramName": "level",
+            "description": " The log level of the message",
+            "type": "String"
+          },
+          {
+            "name": "@param",
+            "body": "varargs {arguments} Arguments list to be logged",
+            "paramName": "varargs",
+            "description": " Arguments list to be logged",
+            "type": "arguments"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,504 @@
+{
+  "className": "qx.util.RingBuffer",
+  "packageName": "qx.util",
+  "name": "RingBuffer",
+  "superClass": "Object",
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 32,
+        "column": 0,
+        "index": 1095
+      },
+      "end": {
+        "line": 233,
+        "column": 3,
+        "index": 6295
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>An memory container which stores arbitrary data up to a maximum number of\n entries. When new entries come in an the maximum is reached, the oldest\n entries are deleted.\n A mark feature also exists which can be used to remember a point in time.\n When retrieving entries, it is possible to get only those entries\n after the marked time. This is useful if data from the buffer is extracted\n and processed. Whenever this happens, a mark() call can be used so that the\n next extraction will only get new data.</p>"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 40,
+        "column": 2,
+        "index": 1273
+      },
+      "end": {
+        "line": 42,
+        "column": 3,
+        "index": 1342
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Constructor.</p>"
+        }
+      ],
+      "@param": [
+        {
+          "name": "@param",
+          "body": "maxEntries {Integer ? 50} Maximum number of entries in the buffer",
+          "paramName": "maxEntries",
+          "description": " Maximum number of entries in the buffer",
+          "optional": true,
+          "defaultValue": "50",
+          "type": "Integer"
+        }
+      ]
+    }
+  },
+  "members": {
+    "__nextIndexToStoreTo": {
+      "location": {
+        "start": {
+          "line": 46,
+          "column": 4,
+          "index": 1399
+        },
+        "end": {
+          "line": 46,
+          "column": 27,
+          "index": 1422
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "__entriesStored": {
+      "location": {
+        "start": {
+          "line": 49,
+          "column": 4,
+          "index": 1469
+        },
+        "end": {
+          "line": 49,
+          "column": 22,
+          "index": 1487
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "__isMarkActive": {
+      "location": {
+        "start": {
+          "line": 52,
+          "column": 4,
+          "index": 1516
+        },
+        "end": {
+          "line": 52,
+          "column": 25,
+          "index": 1537
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "__entriesStoredSinceMark": {
+      "location": {
+        "start": {
+          "line": 55,
+          "column": 4,
+          "index": 1603
+        },
+        "end": {
+          "line": 55,
+          "column": 31,
+          "index": 1630
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "__entries": {
+      "location": {
+        "start": {
+          "line": 58,
+          "column": 4,
+          "index": 1655
+        },
+        "end": {
+          "line": 58,
+          "column": 19,
+          "index": 1670
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "__maxEntries": {
+      "location": {
+        "start": {
+          "line": 61,
+          "column": 4,
+          "index": 1757
+        },
+        "end": {
+          "line": 61,
+          "column": 22,
+          "index": 1775
+        }
+      },
+      "jsdoc": {},
+      "type": "variable",
+      "access": "private"
+    },
+    "setMaxEntries": {
+      "location": {
+        "start": {
+          "line": 71,
+          "column": 4,
+          "index": 2067
+        },
+        "end": {
+          "line": 74,
+          "column": 5,
+          "index": 2158
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Set the maximum number of messages to hold. If null the number of\n messages is not limited.\n Warning: Changing this property will clear the events logged so far.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "maxEntries {Integer} the maximum number of messages to hold",
+            "paramName": "maxEntries",
+            "description": " the maximum number of messages to hold",
+            "type": "Integer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getMaxEntries": {
+      "location": {
+        "start": {
+          "line": 81,
+          "column": 4,
+          "index": 2262
+        },
+        "end": {
+          "line": 83,
+          "column": 5,
+          "index": 2317
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Get the maximum number of entries to hold</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer}",
+            "type": "Integer",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "addEntry": {
+      "location": {
+        "start": {
+          "line": 90,
+          "column": 4,
+          "index": 2418
+        },
+        "end": {
+          "line": 108,
+          "column": 5,
+          "index": 2937
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Adds a single entry</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "entry {var} The data to store",
+            "paramName": "entry",
+            "description": " The data to store",
+            "type": "var"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getNumEntriesStored": {
+      "location": {
+        "start": {
+          "line": 114,
+          "column": 4,
+          "index": 3029
+        },
+        "end": {
+          "line": 116,
+          "column": 5,
+          "index": 3093
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the number of entries stored</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer}",
+            "type": "Integer",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "mark": {
+      "location": {
+        "start": {
+          "line": 122,
+          "column": 4,
+          "index": 3180
+        },
+        "end": {
+          "line": 125,
+          "column": 5,
+          "index": 3269
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Remembers the current position in the ring buffer</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "clearMark": {
+      "location": {
+        "start": {
+          "line": 130,
+          "column": 4,
+          "index": 3333
+        },
+        "end": {
+          "line": 132,
+          "column": 5,
+          "index": 3387
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Removes the current mark position</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAllEntries": {
+      "location": {
+        "start": {
+          "line": 139,
+          "column": 4,
+          "index": 3516
+        },
+        "end": {
+          "line": 141,
+          "column": 5,
+          "index": 3598
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns all stored entries. Mark is ignored.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} array of stored entries",
+            "type": "Array",
+            "description": " array of stored entries"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getEntries": {
+      "location": {
+        "start": {
+          "line": 153,
+          "column": 4,
+          "index": 4027
+        },
+        "end": {
+          "line": 201,
+          "column": 5,
+          "index": 5463
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns entries which have been added previously.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "count {Integer} The number of entries to retrieve. If there are\n    more entries than the given count, the oldest ones will not be returned.",
+            "paramName": "count",
+            "description": " The number of entries to retrieve. If there are\n    more entries than the given count, the oldest ones will not be returned.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "startingFromMark {Boolean ? false} If true, only entries since\n   the last call to mark() will be returned",
+            "paramName": "startingFromMark",
+            "description": " If true, only entries since\n   the last call to mark() will be returned",
+            "optional": true,
+            "defaultValue": "false",
+            "type": "Boolean"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} array of stored entries",
+            "type": "Array",
+            "description": " array of stored entries"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "clear": {
+      "location": {
+        "start": {
+          "line": 206,
+          "column": 4,
+          "index": 5512
+        },
+        "end": {
+          "line": 211,
+          "column": 5,
+          "index": 5693
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Clears all entries</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "__addToIndex": {
+      "location": {
+        "start": {
+          "line": 222,
+          "column": 4,
+          "index": 6045
+        },
+        "end": {
+          "line": 231,
+          "column": 5,
+          "index": 6287
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Adds a number to an ringbuffer index. Does a modulus calculation,\n i. e. if the index leaves the ringbuffer space it will wrap around to\n the other end of the ringbuffer.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "idx {Number} The current index.",
+            "paramName": "idx",
+            "description": " The current index.",
+            "type": "Number"
+          },
+          {
+            "name": "@param",
+            "body": "addMe {Number} The number to add.",
+            "paramName": "addMe",
+            "description": " The number to add.",
+            "type": "Number"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} The new index",
+            "type": "Number",
+            "description": " The new index"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "private"
+    }
+  },
+  "descendants": [
+    "qx.log.appender.RingBuffer"
+  ]
+}

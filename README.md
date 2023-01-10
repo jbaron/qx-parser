@@ -1,10 +1,10 @@
 Introduction
 ============
 This application generates a TypeScript declaration file for the Qooxdoo framework. It uses the API files (JSON format) 
-of Qooxdo to do so.
+of Qooxdoo to do so.
 
-Please note that the generated delcaration file is not 100% OK and still need a few manual tweaks to compile correctly and be 
-usable in your project.
+Please note that the generated declaration file is not 100% OK and still need a few manual tweaks to compile correctly 
+and be usable in your project.
 
 If you are just interested in using the Qooxdoo within a typescript project, better to use the project
 qx-typed. This project has a fully functional declaration file and also some glue so you can start right away.
@@ -39,6 +39,6 @@ Todo
 There are a few things still to be done to create a better output file:
 
 1) Use smarter ways to get type info (like from referenced properties)
-2) Some paramters have multiple types, right now we are just picking the first one. 
+2) Some parameters have multiple types, right now we are just picking the first one. 
    Could use the TypeScript Union Types to deal with this.
 3) Ensure that the resulting declaration file is 100% correct TypeScript.

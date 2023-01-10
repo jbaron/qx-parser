@@ -1,0 +1,755 @@
+{
+  "className": "qx.util.Animation",
+  "packageName": "qx.util",
+  "name": "Animation",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0,
+        "index": 661
+      },
+      "end": {
+        "line": 615,
+        "column": 3,
+        "index": 12061
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Contains property maps for the usage with qx.bom.element.Animation {@link qx.bom.element.Animation}.\n These animations can be used for page transitions for example.</p>"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "SLIDE_LEFT_IN": {
+      "location": {
+        "start": {
+          "line": 26,
+          "column": 4,
+          "index": 761
+        },
+        "end": {
+          "line": 39,
+          "column": 5,
+          "index": 994
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides in from right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_LEFT_OUT": {
+      "location": {
+        "start": {
+          "line": 42,
+          "column": 4,
+          "index": 1041
+        },
+        "end": {
+          "line": 55,
+          "column": 5,
+          "index": 1277
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides out from right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_RIGHT_IN": {
+      "location": {
+        "start": {
+          "line": 58,
+          "column": 4,
+          "index": 1322
+        },
+        "end": {
+          "line": 71,
+          "column": 5,
+          "index": 1557
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides in from left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_RIGHT_OUT": {
+      "location": {
+        "start": {
+          "line": 74,
+          "column": 4,
+          "index": 1603
+        },
+        "end": {
+          "line": 87,
+          "column": 5,
+          "index": 1839
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides out from left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FADE_IN": {
+      "location": {
+        "start": {
+          "line": 90,
+          "column": 4,
+          "index": 1874
+        },
+        "end": {
+          "line": 103,
+          "column": 5,
+          "index": 2093
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target fades in.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FADE_OUT": {
+      "location": {
+        "start": {
+          "line": 106,
+          "column": 4,
+          "index": 2129
+        },
+        "end": {
+          "line": 119,
+          "column": 5,
+          "index": 2349
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target fades out.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "POP_IN": {
+      "location": {
+        "start": {
+          "line": 122,
+          "column": 4,
+          "index": 2395
+        },
+        "end": {
+          "line": 135,
+          "column": 5,
+          "index": 2614
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target pops in from center.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "POP_OUT": {
+      "location": {
+        "start": {
+          "line": 138,
+          "column": 4,
+          "index": 2661
+        },
+        "end": {
+          "line": 151,
+          "column": 5,
+          "index": 2881
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target pops out from center.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SHRINK_HEIGHT": {
+      "location": {
+        "start": {
+          "line": 154,
+          "column": 4,
+          "index": 2926
+        },
+        "end": {
+          "line": 170,
+          "column": 5,
+          "index": 3215
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target shrinks its height.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "GROW_HEIGHT": {
+      "location": {
+        "start": {
+          "line": 173,
+          "column": 4,
+          "index": 3258
+        },
+        "end": {
+          "line": 189,
+          "column": 5,
+          "index": 3545
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target grows its height.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SHRINK_WIDTH": {
+      "location": {
+        "start": {
+          "line": 192,
+          "column": 4,
+          "index": 3589
+        },
+        "end": {
+          "line": 208,
+          "column": 5,
+          "index": 3878
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target shrinks its width.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "GROW_WIDTH": {
+      "location": {
+        "start": {
+          "line": 211,
+          "column": 4,
+          "index": 3920
+        },
+        "end": {
+          "line": 227,
+          "column": 5,
+          "index": 4207
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target grows its width.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SHRINK": {
+      "location": {
+        "start": {
+          "line": 230,
+          "column": 4,
+          "index": 4266
+        },
+        "end": {
+          "line": 246,
+          "column": 5,
+          "index": 4546
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target shrinks in both width and height.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "GROW": {
+      "location": {
+        "start": {
+          "line": 249,
+          "column": 4,
+          "index": 4603
+        },
+        "end": {
+          "line": 265,
+          "column": 5,
+          "index": 4881
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target grows in both width and height.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_UP_IN": {
+      "location": {
+        "start": {
+          "line": 268,
+          "column": 4,
+          "index": 4924
+        },
+        "end": {
+          "line": 281,
+          "column": 5,
+          "index": 5163
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides in to top.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_UP_OUT": {
+      "location": {
+        "start": {
+          "line": 284,
+          "column": 4,
+          "index": 5206
+        },
+        "end": {
+          "line": 297,
+          "column": 5,
+          "index": 5445
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides out to top.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_DOWN_IN": {
+      "location": {
+        "start": {
+          "line": 300,
+          "column": 4,
+          "index": 5491
+        },
+        "end": {
+          "line": 313,
+          "column": 5,
+          "index": 5731
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides out to bottom.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SLIDE_DOWN_OUT": {
+      "location": {
+        "start": {
+          "line": 316,
+          "column": 4,
+          "index": 5778
+        },
+        "end": {
+          "line": 329,
+          "column": 5,
+          "index": 6020
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target slides down to bottom.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FLIP_LEFT_IN": {
+      "location": {
+        "start": {
+          "line": 332,
+          "column": 4,
+          "index": 6094
+        },
+        "end": {
+          "line": 357,
+          "column": 5,
+          "index": 6529
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target flips (turns) left from back side to front side.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FLIP_LEFT_OUT": {
+      "location": {
+        "start": {
+          "line": 360,
+          "column": 4,
+          "index": 6603
+        },
+        "end": {
+          "line": 375,
+          "column": 5,
+          "index": 6910
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target flips (turns) left from front side to back side.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FLIP_RIGHT_IN": {
+      "location": {
+        "start": {
+          "line": 378,
+          "column": 4,
+          "index": 6985
+        },
+        "end": {
+          "line": 403,
+          "column": 5,
+          "index": 7429
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target flips (turns) right from back side to front side.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "FLIP_RIGHT_OUT": {
+      "location": {
+        "start": {
+          "line": 406,
+          "column": 4,
+          "index": 7504
+        },
+        "end": {
+          "line": 421,
+          "column": 5,
+          "index": 7811
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target flips (turns) right from front side to back side.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SWAP_LEFT_IN": {
+      "location": {
+        "start": {
+          "line": 424,
+          "column": 4,
+          "index": 7854
+        },
+        "end": {
+          "line": 447,
+          "column": 5,
+          "index": 8378
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves in to left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SWAP_LEFT_OUT": {
+      "location": {
+        "start": {
+          "line": 450,
+          "column": 4,
+          "index": 8423
+        },
+        "end": {
+          "line": 473,
+          "column": 5,
+          "index": 8947
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves out to left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SWAP_RIGHT_IN": {
+      "location": {
+        "start": {
+          "line": 476,
+          "column": 4,
+          "index": 8991
+        },
+        "end": {
+          "line": 499,
+          "column": 5,
+          "index": 9514
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves in to right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "SWAP_RIGHT_OUT": {
+      "location": {
+        "start": {
+          "line": 502,
+          "column": 4,
+          "index": 9559
+        },
+        "end": {
+          "line": 525,
+          "column": 5,
+          "index": 10085
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves out to right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "CUBE_LEFT_IN": {
+      "location": {
+        "start": {
+          "line": 528,
+          "column": 4,
+          "index": 10160
+        },
+        "end": {
+          "line": 547,
+          "column": 5,
+          "index": 10576
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves in with cube animation from right to left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "CUBE_LEFT_OUT": {
+      "location": {
+        "start": {
+          "line": 550,
+          "column": 4,
+          "index": 10652
+        },
+        "end": {
+          "line": 569,
+          "column": 5,
+          "index": 11068
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves out with cube animation from right to left.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "CUBE_RIGHT_IN": {
+      "location": {
+        "start": {
+          "line": 572,
+          "column": 4,
+          "index": 11143
+        },
+        "end": {
+          "line": 591,
+          "column": 5,
+          "index": 11559
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves in with cube animation from left to right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "CUBE_RIGHT_OUT": {
+      "location": {
+        "start": {
+          "line": 594,
+          "column": 4,
+          "index": 11635
+        },
+        "end": {
+          "line": 613,
+          "column": 5,
+          "index": 12053
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Target moves out with cube animation from left to right.</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    }
+  },
+  "descendants": []
+}

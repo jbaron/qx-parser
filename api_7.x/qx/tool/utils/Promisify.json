@@ -1,0 +1,345 @@
+{
+  "className": "qx.tool.utils.Promisify",
+  "packageName": "qx.tool.utils",
+  "name": "Promisify",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0,
+        "index": 829
+      },
+      "end": {
+        "line": 218,
+        "column": 3,
+        "index": 5371
+      }
+    }
+  },
+  "type": "class",
+  "statics": {
+    "MAGIC_KEY": {
+      "location": {
+        "start": {
+          "line": 29,
+          "column": 4,
+          "index": 891
+        },
+        "end": {
+          "line": 29,
+          "column": 34,
+          "index": 921
+        }
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "IGNORED_PROPS": {
+      "location": {
+        "start": {
+          "line": 30,
+          "column": 4,
+          "index": 927
+        },
+        "end": {
+          "line": 31,
+          "column": 86,
+          "index": 1028
+        }
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "promisifyAll": {
+      "location": {
+        "start": {
+          "line": 33,
+          "column": 4,
+          "index": 1035
+        },
+        "end": {
+          "line": 60,
+          "column": 5,
+          "index": 1778
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "isPromisified": {
+      "location": {
+        "start": {
+          "line": 62,
+          "column": 4,
+          "index": 1785
+        },
+        "end": {
+          "line": 68,
+          "column": 5,
+          "index": 1916
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "promisify": {
+      "location": {
+        "start": {
+          "line": 70,
+          "column": 4,
+          "index": 1923
+        },
+        "end": {
+          "line": 76,
+          "column": 5,
+          "index": 2060
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "poolEachOf": {
+      "location": {
+        "start": {
+          "line": 78,
+          "column": 4,
+          "index": 2067
+        },
+        "end": {
+          "line": 88,
+          "column": 5,
+          "index": 2334
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "map": {
+      "location": {
+        "start": {
+          "line": 90,
+          "column": 4,
+          "index": 2341
+        },
+        "end": {
+          "line": 92,
+          "column": 5,
+          "index": 2415
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "some": {
+      "location": {
+        "start": {
+          "line": 94,
+          "column": 4,
+          "index": 2422
+        },
+        "end": {
+          "line": 111,
+          "column": 5,
+          "index": 2909
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "someEach": {
+      "location": {
+        "start": {
+          "line": 113,
+          "column": 4,
+          "index": 2916
+        },
+        "end": {
+          "line": 128,
+          "column": 5,
+          "index": 3312
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "somePool": {
+      "location": {
+        "start": {
+          "line": 130,
+          "column": 4,
+          "index": 3319
+        },
+        "end": {
+          "line": 151,
+          "column": 5,
+          "index": 3894
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "call": {
+      "location": {
+        "start": {
+          "line": 153,
+          "column": 4,
+          "index": 3901
+        },
+        "end": {
+          "line": 163,
+          "column": 5,
+          "index": 4125
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "callback": {
+      "location": {
+        "start": {
+          "line": 165,
+          "column": 4,
+          "index": 4132
+        },
+        "end": {
+          "line": 172,
+          "column": 5,
+          "index": 4315
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "fs": {
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4,
+          "index": 4322
+        },
+        "end": {
+          "line": 174,
+          "column": 12,
+          "index": 4330
+        }
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "each": {
+      "location": {
+        "start": {
+          "line": 176,
+          "column": 4,
+          "index": 4337
+        },
+        "end": {
+          "line": 178,
+          "column": 5,
+          "index": 4414
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "forEachOf": {
+      "location": {
+        "start": {
+          "line": 180,
+          "column": 4,
+          "index": 4421
+        },
+        "end": {
+          "line": 182,
+          "column": 5,
+          "index": 4503
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "eachOf": {
+      "location": {
+        "start": {
+          "line": 184,
+          "column": 4,
+          "index": 4510
+        },
+        "end": {
+          "line": 187,
+          "column": 5,
+          "index": 4644
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "eachSeries": {
+      "location": {
+        "start": {
+          "line": 189,
+          "column": 4,
+          "index": 4651
+        },
+        "end": {
+          "line": 191,
+          "column": 5,
+          "index": 4740
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "forEachOfSeries": {
+      "location": {
+        "start": {
+          "line": 193,
+          "column": 4,
+          "index": 4747
+        },
+        "end": {
+          "line": 195,
+          "column": 5,
+          "index": 4841
+        }
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "eachOfSeries": {
+      "location": {
+        "start": {
+          "line": 197,
+          "column": 4,
+          "index": 4848
+        },
+        "end": {
+          "line": 210,
+          "column": 5,
+          "index": 5216
+        }
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 213,
+        "column": 2,
+        "index": 5225
+      },
+      "end": {
+        "line": 217,
+        "column": 3,
+        "index": 5367
+      }
+    }
+  },
+  "descendants": []
+}

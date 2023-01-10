@@ -1,0 +1,54 @@
+{
+  "className": "qx.theme.Simple",
+  "packageName": "qx.theme",
+  "name": "Simple",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 0,
+        "index": 511
+      },
+      "end": {
+        "line": 31,
+        "column": 3,
+        "index": 769
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Simple Theme</p>"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "themeMeta": {
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 2,
+        "index": 570
+      },
+      "end": {
+        "line": 30,
+        "column": 3,
+        "index": 765
+      }
+    },
+    "themeMetaMap": {
+      "color": "qx.theme.simple.Color",
+      "decoration": "qx.theme.simple.Decoration",
+      "font": "qx.theme.simple.Font",
+      "appearance": "qx.theme.simple.Appearance",
+      "icon": "qx.theme.icon.Tango"
+    }
+  },
+  "descendants": []
+}

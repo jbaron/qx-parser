@@ -1,0 +1,59 @@
+{
+  "className": "qx.core.IDisposable",
+  "packageName": "qx.core",
+  "name": "IDisposable",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0,
+        "index": 869
+      },
+      "end": {
+        "line": 35,
+        "column": 3,
+        "index": 1001
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Classes which implement this interface are required to be disposed when they are\n no longer needed, by calling .dispose(); they are also registered with qx.core.ObjectRegistry\n so that qx.core.ObjectRegistry.fromHashCode() will work.\n Note that classes do not have to implement this interface in order to provide a dispose\n method and/or a destructor.</p>"
+        }
+      ]
+    }
+  },
+  "type": "interface",
+  "members": {
+    "dispose": {
+      "location": {
+        "start": {
+          "line": 33,
+          "column": 4,
+          "index": 981
+        },
+        "end": {
+          "line": 33,
+          "column": 16,
+          "index": 993
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Dispose this object</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "descendants": []
+}

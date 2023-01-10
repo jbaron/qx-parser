@@ -1,0 +1,79 @@
+{
+  "className": "qx.dev.unit.Sinon",
+  "packageName": "qx.dev.unit",
+  "name": "Sinon",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 52,
+        "column": 0,
+        "index": 1266
+      },
+      "end": {
+        "line": 65,
+        "column": 5,
+        "index": 1511
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Exposes Sinon.JS to qooxdoo.\n This class exposes Sinon.JS (http://sinonjs.org/) and is not to be used\n directly. Instead, you should include qx.dev.unit.MMock in your TestCase\n and use the wrappers provided.</p>"
+        }
+      ],
+      "@internal": [
+        {
+          "name": "@internal",
+          "body": ""
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "getSinon": {
+      "location": {
+        "start": {
+          "line": 63,
+          "column": 6,
+          "index": 1485
+        },
+        "end": {
+          "line": 63,
+          "column": 20,
+          "index": 1499
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Get the Sinon.JS object.</p>"
+          }
+        ],
+        "@signature": [
+          {
+            "name": "@signature",
+            "body": "function()"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Object} The Sinon.JS object",
+            "type": "Object",
+            "description": " The Sinon.JS object"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    }
+  },
+  "descendants": []
+}

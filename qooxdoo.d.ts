@@ -1,4 +1,4 @@
-// Generated declaration file at Sun Apr 03 2016 14:51:17 GMT+0200 (CEST)
+// Generated declaration file at Fri Dec 16 2022 09:13:32 GMT+0100 (Central European Standard Time)
 
 interface IMap { 
     [key:string] : any; 
@@ -2307,6 +2307,7 @@ class Timer extends qx.core.Object {
 declare module qx.event.dispatch {
 class AbstractBubbling extends qx.core.Object implements qx.event.IEventDispatcher {
     canDispatchEvent(target:HTMLElement,event:qx.event.type.Event,type:string):boolean;
+    // @ts-ignore
     dispatchEvent(target:HTMLElement,event:qx.event.type.Event,type:string):void;
     constructor (manager?:qx.event.Manager);
     protected _getParent(target:any):any;
@@ -2316,6 +2317,7 @@ class AbstractBubbling extends qx.core.Object implements qx.event.IEventDispatch
 declare module qx.event.dispatch {
 class Direct extends qx.core.Object implements qx.event.IEventDispatcher {
     canDispatchEvent(target:HTMLElement,event:qx.event.type.Event,type:string):boolean;
+    // @ts-ignore
     dispatchEvent(target:HTMLElement,event:qx.event.type.Event,type:string):void;
     constructor (manager?:qx.event.Manager);
 
@@ -3082,7 +3084,9 @@ class Element extends qx.core.Object {
     removeAt(index:number):qx.html.Element;
     removeAttribute(key:string,direct?:boolean):qx.html.Element;
     removeClass(name:string):void;
+    // @ts-ignore
     removeListener(type:string,listener:Function,self:any,capture?:boolean):qx.html.Element;
+    // @ts-ignore
     removeListenerById(id:any):qx.html.Element;
     removeStyle(key:string,direct?:boolean):qx.html.Element;
     scrollChildIntoViewX(elem:qx.html.Element,align?:string,direct?:boolean):void;
@@ -3617,7 +3621,6 @@ class XmlHttp extends qx.io.remote.transport.Abstract {
 declare module qx.io.request {
 class AbstractRequest extends qx.core.Object {
     constructor (url?:string);
-    protected _createTransport():qx.bom.request;
     protected _fireStatefulEvent(evt:string):void;
     protected _getAllRequestHeaders():IMap;
     protected _getConfiguredRequestHeaders():IMap;
@@ -5594,7 +5597,7 @@ class Widget extends qx.ui.core.LayoutItem {
     setDomTop(value:number):void;
     setDraggable(value:any):boolean;
     setDroppable(value:any):boolean;
-    setEnabled(value:any):boolean;
+    setEnabled(value:any):void;
     setFocusable(value:any):boolean;
     setFont(value:any):string;
     setKeepActive(value:any):boolean;
@@ -5739,10 +5742,6 @@ interface IScrollBar {
     getMaximum():any;
     getOrientation():any;
     getPosition():any;
-    protected initKnobFactor(value:any):any;
-    protected initMaximum(value:any):any;
-    protected initOrientation(value:any):any;
-    protected initPosition(value:any):any;
     resetKnobFactor():void;
     resetMaximum():void;
     resetOrientation():void;
@@ -9070,6 +9069,7 @@ declare module qx.ui.progressive.renderer.table {
 class Widths extends qx.core.Object {
     constructor (numColumns?:number);
     getData():qx.data.Array;
+    // @ts-ignore
     set(column:number,map:IMap):void;
     setMaxWidth(column:number,width:number):void;
     setMinWidth(column:number,width:number):void;
@@ -9320,7 +9320,6 @@ interface IColumnMenuButton {
     empty():void;
     factory(item:string,options:IMap):qx.ui.core.Widget;
     getMenu():any;
-    protected initMenu(value:any):any;
     resetMenu():void;
     setMenu(value:any):any;
 
@@ -9329,7 +9328,6 @@ interface IColumnMenuButton {
 declare module qx.ui.table {
 interface IColumnMenuItem {
     getVisible():any;
-    protected initVisible(value:any):any;
     resetVisible():void;
     setVisible(value:any):any;
 
@@ -9896,6 +9894,7 @@ class Default extends qx.ui.table.columnmodel.resizebehavior.Abstract {
     resetInitializeWidthsOnEveryAppear():void;
     resetNewResizeBehaviorColumnData():void;
     resetTableColumnModel():void;
+    // @ts-ignore
     set(col:number,map:IMap):void;
     setInitializeWidthsOnEveryAppear(value:any):boolean;
     setMaxWidth(col:number,width:number):void;

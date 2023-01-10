@@ -19,7 +19,7 @@ class Types {
 }
 
 /**
-  * The possbile attributes keys
+  * The possible attributes keys
   */
 interface Attributes {
     packageName?: string;
@@ -54,12 +54,12 @@ enum ClassType {
 }
 
 
-var indent = "    ";
+const indent = "    ";
 
 
 // This is the string that contains the full declaration
-var time = new Date();
-var output = `// Generated declaration file at ${time}\n`
+const time = new Date();
+let output = `// Generated declaration file at ${time}\n`;
 
 
 /**
@@ -71,13 +71,13 @@ function write(msg) {
 
 
 /**
-	* This class loads the Qooxdoo API files that are passed to the cosntructur
+	* This class loads the Qooxdoo API files that are passed to the constructor
 	* and generates a declaration file out of that.
 	*/
 class Parser {
 
     // Check for missing classes and add those files if required.
-    static HANDLE_DEPENDECIES = true;
+    static HANDLE_DEPENDENCIES = true;
 
     // Don't put private methods and properties in the declaration
     static EXCLUDE_PRIVATE = true;
@@ -86,13 +86,13 @@ class Parser {
     static LOG_LEVEL = 3;
 
     // Include Mixins
-    static HANLDE_MIXINS = true;
+    static HANDLE_MIXINS = true;
 
     // Sometime methods are duplicated. 
     static AVOID_DUPLICATES = true;
 
     // Where to find the API documentation json files
-    static BASE_DIR = "api_5.0/";
+    static BASE_DIR = "api_7.x/";
 
     // Contains the mapping from Qooxdoo types to TypeScript types
     private typeMappings: Map<string, string>;
@@ -116,9 +116,9 @@ class Parser {
         this.fileNames.forEach((fileName) => {
             if ((!fileName) || (fileName.indexOf("//") === 0)) return;
             try {
-                var src: Fmt = this.loadAPIFile(fileName);
+                const src: Fmt = this.loadAPIFile(fileName);
 
-                // Reset the golbal methods list.
+                // Reset the global methods list.
                 this.processedMethods = {};
                 this.properties = {};
 
@@ -133,7 +133,7 @@ class Parser {
 		* Load the type mappings from the config file
 		*/
     private loadTypeMappings() {
-        var content = fs.readFileSync("type_mapping.json", "UTF-8");
+        const content = fs.readFileSync("type_mapping.json", "UTF-8");
         this.typeMappings = JSON.parse(content);
     }
 
@@ -141,7 +141,7 @@ class Parser {
 		* Load the type mappings from the config file
 		*/
     private loadFileNames() {
-        var content = fs.readFileSync("files.txt", "UTF-8");
+        const content = fs.readFileSync("files7.txt", "UTF-8");
         this.fileNames = content.split("\n");
     }
 
@@ -151,24 +151,23 @@ class Parser {
 		*/
     private loadAPIFile(name): Fmt {
         if (Parser.LOG_LEVEL > 3) console.info("Parsing API file" + name);
-        var fileName = path.join(Parser.BASE_DIR, name);
-        var content = fs.readFileSync(fileName, "UTF-8");
-        var result = JSON.parse(content);
-        return result;
+        const fileName = path.join(Parser.BASE_DIR, name);
+        const content = fs.readFileSync(fileName, "UTF-8");
+        return JSON.parse(content);
     }
 
 	/**
 	  * Write some util declarations out that will help with the rest
 	  */
     private writeBase() {
-        var content = fs.readFileSync("base_declaration.txt", "UTF-8");
+        const content = fs.readFileSync("base_declaration.txt", "UTF-8");
         write(content);
     }
 
 
 	/**
 	  * Check if q qx type is yet unknown and add it then to the 
-	  * file list to be parsed. This way dependecies are resolved
+	  * file list to be parsed. This way dependencies are resolved
 	  * and added to the declaration file.
 	  * 
 	  */
@@ -176,7 +175,7 @@ class Parser {
         if (!t) return;
         t = t.trim();
         if (t.substring(0, 2) === "qx") {
-            var fileName = t + ".json";
+            const fileName = t + ".json";
             if (files.indexOf(fileName) === -1) {
                 files.push(fileName);
                 if (Parser.LOG_LEVEL > 3) console.info("adding dependency: " + fileName);
@@ -188,12 +187,12 @@ class Parser {
 	  * Do the mapping of types from Qooxdoo to TypeScript
 	  */
     getType(t: string) {
-        var defaultType = "any";
+        const defaultType = "any";
         if (!t) return defaultType;
 
-        // Check if we have a mpping for this type
+        // Check if we have a mapping for this type
         if (this.typeMappings.hasOwnProperty(t)) {
-            var result = this.typeMappings[ t ];
+            const result = this.typeMappings[t];
             this.addIfNewDependency(result);
             return result;
         }
@@ -205,7 +204,7 @@ class Parser {
         }
 
         // We don't know the type
-        if (Parser.LOG_LEVEL > 2) console.error("Unknow type: " + t);
+        if (Parser.LOG_LEVEL > 2) console.error("Unknown type: " + t);
         return defaultType;
     }
 
@@ -224,14 +223,14 @@ class Parser {
     }
 
 	/**
-		* Utiltiy function to find the child of a a certain type
+		* Utility function to find the child of a certain type
 		*/
     findChildByType(t: string, parent: Fmt): Fmt {
         if (!parent) return null;
         if (!parent.children) return null;
-        var result = null;
-        for (var i = 0; i < parent.children.length; i++) {
-            var child = parent.children[ i ];
+        let result = null;
+        for (let i = 0; i < parent.children.length; i++) {
+            const child = parent.children[i];
             if (child.type === t) return child
         }
         if (1 == 1) return null;
@@ -262,7 +261,7 @@ class Parser {
                 if (this.processedMethods[ m.attributes.name ]) return;
 
                 // var modifier = "public";
-                var staticClause = isStatic ? "static " : "";
+                const staticClause = isStatic ? "static " : "";
 
                 // Seems access when defined is private, protected and internal
                 // We all map this to private
@@ -270,7 +269,7 @@ class Parser {
 
                 if (Parser.LOG_LEVEL > 3) console.info("Processing method " + m.attributes.name);
 
-                var modifier = "";
+                let modifier = "";
                 this.processedMethods[ m.attributes.name ] = true;
 
                 if (m.attributes.access) {
@@ -291,15 +290,15 @@ class Parser {
     }
 
 	/**
-		* Determine the return type of a method and write it
-		*/
+     * Determine the return type of the method and write it
+     */
     writeReturnType(d: Fmt) {
-        var returnType = "void";
-        var a = this.findChildByType(Types.Return, d);
+        let returnType = "void";
+        let a = this.findChildByType(Types.Return, d);
         a = this.findChildByType(Types.Types, a);
         a = this.findChildByType(Types.Entry, a);
         if (a && a.attributes.type) {
-            var type = a.attributes.type;
+            let type = a.attributes.type;
             if (type === "var") {
                 type = this.properties[ this.fromProperty ];
                 console.log("Type determined for " + this.fromProperty + ":" + type);
@@ -314,12 +313,12 @@ class Parser {
 		* Write the specific type of one parameter. 
 		*/
     writeParam(p: Fmt, forceOptional: boolean): boolean {
-        var type = "any";
+        let type = "any";
         write(p.attributes.name);
         if (p.attributes.name == "varargs") forceOptional = true;
         if (p.attributes.optional || forceOptional) write("?");
         write(":");
-        var a = this.findChildByType(Types.Types, p);
+        let a = this.findChildByType(Types.Types, p);
         a = this.findChildByType(Types.Entry, a);
         if (a && a.attributes.type) {
             type = this.getType(a.attributes.type);
@@ -330,12 +329,12 @@ class Parser {
     }
 
 	/**
-		* Write out all the arguments of a method. Once one paramter is optional,
-		* the remaining ones are also optional (is a TypeScript requirement)
-		*/
+      * Write out all the arguments of a method. Once one parameter is optional,
+      * the remaining ones are also optional (is a TypeScript requirement)
+      */
     writeParameters(d: Fmt, optional = false) {
-        var params = this.findChildByType("params", d);
-        var first = true;
+        const params = this.findChildByType("params", d);
+        let first = true;
         if (params) {
             params.children.forEach((c) => {
                 if (c.type === Types.Param) {
@@ -366,12 +365,12 @@ class Parser {
 
             if ((!p.attributes.check) && (Parser.LOG_LEVEL > 2)) console.error("No type for attribute " + p.attributes.name);
 
-            var modifier = "";
+            let modifier = "";
             if (p.attributes.access) {
                 if (p.attributes.access === "private") modifier = "private";
                 if (p.attributes.access === "protected") modifier = "protected";
             }
-            var type = this.getType(p.attributes.check);
+            const type = this.getType(p.attributes.check);
             write(modifier + " " + p.attributes.name + ":" + type + ";\n");
         });
     }
@@ -385,7 +384,7 @@ class Parser {
         if (!name) return;
         this.addIfNewDependency(name);
 
-        var d: Fmt = this.loadAPIFile(name + ".json");
+        const d: Fmt = this.loadAPIFile(name + ".json");
 
         this.runChildrenOfType(d, Types.Properties, (c) => {
             this.writeProperties(c.children);
@@ -405,8 +404,8 @@ class Parser {
 	 * Implements used 
 	 */
     writeImplementsClause(a: Attributes) {
-        var interfaces = a.interfaces || "";
-        var mixins = a.mixins || "";
+        const interfaces = a.interfaces || "";
+        const mixins = a.mixins || "";
 
         if ((!interfaces) && (!mixins)) {
             write(" {\n");
@@ -430,7 +429,7 @@ class Parser {
     }
 
     writeExtendsClause(a: Attributes) {
-        var extendsClause = "";
+        let extendsClause = "";
 
         if (a.superClass && (a.superClass !== "Object")) {
             extendsClause = "extends " + this.getType(a.superClass);
@@ -449,7 +448,7 @@ class Parser {
 		*/
     writeClass(d: Fmt) {
 
-        var a = d.attributes;
+        const a = d.attributes;
         if (Parser.LOG_LEVEL > 2) console.info("Processing class " + d.attributes.packageName + "." + a.name);
 
         if (a.type === "interface") {
@@ -484,7 +483,7 @@ class Parser {
 		* Write the module declaration if any.
 		*/
     writeModule(d: Fmt) {
-        var moduleName = d.attributes.packageName;
+        const moduleName = d.attributes.packageName;
 
         if (moduleName) {
             write(`declare module ${moduleName} {\n`);
@@ -499,13 +498,12 @@ class Parser {
 }
 
 /****************************************************************************
-		Here is where the processing is kicked of, reading the files from the 
+		Here is where the processing is kicked of, reading the files from the
 		command arguments and start parsing them.
 *****************************************************************************/
 
-var files = process.argv.slice(2);
-
-var parser = new Parser();
+const files = process.argv.slice(2);
+const parser = new Parser();
 parser.run();
 fs.writeFileSync("qooxdoo.d.ts", output);
 

@@ -1,0 +1,528 @@
+{
+  "className": "qx.tool.config.Utils",
+  "packageName": "qx.tool.config",
+  "name": "Utils",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 0,
+        "index": 822
+      },
+      "end": {
+        "line": 384,
+        "column": 3,
+        "index": 13084
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>NOTE: some of the names of the methods in this class do not express very clearly\n what they do and might be renamed before 7.0.0</p>"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "isAbstract": false,
+  "isStatic": true,
+  "isSingleton": false,
+  "statics": {
+    "__qxPathPromise": {
+      "location": {
+        "start": {
+          "line": 33,
+          "column": 4,
+          "index": 965
+        },
+        "end": {
+          "line": 33,
+          "column": 25,
+          "index": 986
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": ""
+          }
+        ],
+        "@type": [
+          {
+            "name": "@type",
+            "body": "{Promise<String} promise for cache of getQxPath()"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "private"
+    },
+    "getProjectData": {
+      "location": {
+        "start": {
+          "line": 56,
+          "column": 4,
+          "index": 2044
+        },
+        "end": {
+          "line": 99,
+          "column": 5,
+          "index": 3243
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns data on the project in the currect working directory.\n If a qooxdoo.json file exists, the data is taken from there.\n If not, the relies on the following assumptions:</p>\n<ol>\n<li>If a Manifest.json exists in the current working directory,\nit is assumed to be the main library directory.</li>\n<li>If a compile.json file exists in the current working directory,\nit is assumed to be the directory in which the application can be found.\nThe method returns a promise that resolves to a map containing the following keys:\n'libraries': an array of maps containing a 'path' property with a relative path to a library folder,\n'applications': an array of maps containing a 'path' property with a relative path to an\napplication folder.\nIf no libraries or applications can be found, empty arrays are returned.</li>\n</ol>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<Object>}",
+            "type": "Promise<Object>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getLibraryPath": {
+      "location": {
+        "start": {
+          "line": 109,
+          "column": 4,
+          "index": 3679
+        },
+        "end": {
+          "line": 118,
+          "column": 5,
+          "index": 4067
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the path to the library in the current working directory. If that\n directory contains several libraries, the first one found is returned.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@throws": [
+          {
+            "name": "@throws",
+            "body": "{Error} Throws an error if no library can be found.",
+            "type": "Error",
+            "description": " Throws an error if no library can be found."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} A promise that resolves with the absolute path to the library",
+            "type": "String",
+            "description": " A promise that resolves with the absolute path to the library"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getApplicationPath": {
+      "location": {
+        "start": {
+          "line": 129,
+          "column": 4,
+          "index": 4550
+        },
+        "end": {
+          "line": 138,
+          "column": 5,
+          "index": 4958
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the path to the current application, depending on\n the current working directory. If a directory contains\n several applications, the first one found is returned.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@throws": [
+          {
+            "name": "@throws",
+            "body": "{Error} Throws an error if no application can be found.",
+            "type": "Error",
+            "description": " Throws an error if no application can be found."
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<String>} A promise that resolves with the absolute path to the application",
+            "type": "Promise<String>",
+            "description": " A promise that resolves with the absolute path to the application"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getQxPath": {
+      "location": {
+        "start": {
+          "line": 162,
+          "column": 4,
+          "index": 5859
+        },
+        "end": {
+          "line": 219,
+          "column": 5,
+          "index": 7601
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Compute the path to the qooxdoo library (the <code>qx</code> namespace)\n which is used independently of the application being compiled.\n The path will be resolved via the following strategies:</p>\n<ol>\n<li>finding a <code>Manifest.json</code> in the current working directory that provides\nthe <code>qx</code> library, or such a file in the parent directory, its parent dir,\netc., up to the root.</li>\n<li>The qx library contained in the projects <code>node_modules</code> folder, if it exists,\nor in the parent directory's, etc.</li>\n<li>if not found try 1. and 2. with current script dir</li>\n<li>A globally installed <code>@qooxdoo/framework</code> NPM package.\nIf all strategies fail, an error is thrown.</li>\n</ol>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<*string>}",
+            "type": "Promise<*string>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "applicationExists": {
+      "location": {
+        "start": {
+          "line": 228,
+          "column": 4,
+          "index": 7891
+        },
+        "end": {
+          "line": 232,
+          "column": 5,
+          "index": 8034
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns true if a compilable application exists in the given directory by checking\n if there is a \"compile.json\" file.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<Boolean>}",
+            "type": "Promise<Boolean>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getQxVersion": {
+      "location": {
+        "start": {
+          "line": 239,
+          "column": 4,
+          "index": 8270
+        },
+        "end": {
+          "line": 242,
+          "column": 5,
+          "index": 8402
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the qooxdoo version from the current environment (not the application)</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} dir The base directory. If not given, the current working dir is used",
+            "paramName": "dir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<String>}",
+            "type": "Promise<String>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getCompilerVersion": {
+      "location": {
+        "start": {
+          "line": 249,
+          "column": 4,
+          "index": 8560
+        },
+        "end": {
+          "line": 251,
+          "column": 5,
+          "index": 8649
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>returns the compiler version.\n The version is written during compiler compile into the enviroment</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String}",
+            "type": "String",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAppQxVersion": {
+      "location": {
+        "start": {
+          "line": 260,
+          "column": 4,
+          "index": 8955
+        },
+        "end": {
+          "line": 297,
+          "column": 5,
+          "index": 10208
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the qooxdoo version used in the application in the current or given\n directory. Throws if no such version can be determined</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} baseDir The base directory. If not given, the current working dir is used",
+            "paramName": "baseDir",
+            "description": "The base directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<String>}",
+            "type": "Promise<String>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "isQxLibrary": {
+      "location": {
+        "start": {
+          "line": 304,
+          "column": 4,
+          "index": 10379
+        },
+        "end": {
+          "line": 324,
+          "column": 5,
+          "index": 10967
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns true if the library in the given path provides the \"qx\" library</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String} libraryPath"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<boolean>}",
+            "type": "Promise<boolean>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getManifestModels": {
+      "location": {
+        "start": {
+          "line": 332,
+          "column": 4,
+          "index": 11299
+        },
+        "end": {
+          "line": 353,
+          "column": 5,
+          "index": 12146
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns an array of {@link qx.tool.config.Abstract} Objects which contain\n metadata on the <code>Manifest.json</code> file(s) in the current project/package.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String?} cwd The working directory. If not given, the current working dir is used",
+            "paramName": "cwd",
+            "description": "The working directory. If not given, the current working dir is used",
+            "optional": true,
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<qx.tool.config.Manifest[]>}",
+            "type": "Promise<qx.tool.config.Manifest[]>",
+            "description": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getLibraryVersion": {
+      "location": {
+        "start": {
+          "line": 360,
+          "column": 4,
+          "index": 12330
+        },
+        "end": {
+          "line": 382,
+          "column": 5,
+          "index": 13076
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Given the path to a library folder, returns the library version from its manifest</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "{String} libPath"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Promise<String>} Version",
+            "type": "Promise<String>",
+            "description": " Version"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "descendants": []
+}

@@ -1,0 +1,1304 @@
+{
+  "className": "qx.bom.client.Html",
+  "packageName": "qx.bom.client",
+  "name": "Html",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 0,
+        "index": 743
+      },
+      "end": {
+        "line": 537,
+        "column": 3,
+        "index": 15348
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Internal class which contains the checks used by {@link qx.core.Environment}.\n All checks in here are marked as internal which means you should never use\n them directly.\n This class should contain all checks about HTML.</p>"
+        }
+      ],
+      "@internal": [
+        {
+          "name": "@internal",
+          "body": ""
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "getWebWorker": {
+      "location": {
+        "start": {
+          "line": 35,
+          "column": 4,
+          "index": 963
+        },
+        "end": {
+          "line": 37,
+          "column": 5,
+          "index": 1021
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports Web Workers.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if webworkers are supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if webworkers are supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getFileReader": {
+      "location": {
+        "start": {
+          "line": 45,
+          "column": 4,
+          "index": 1188
+        },
+        "end": {
+          "line": 47,
+          "column": 5,
+          "index": 1251
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports File Readers</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if FileReaders are supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if FileReaders are supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getGeoLocation": {
+      "location": {
+        "start": {
+          "line": 55,
+          "column": 4,
+          "index": 1415
+        },
+        "end": {
+          "line": 57,
+          "column": 5,
+          "index": 1480
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports Geo Location.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if geolocation supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if geolocation supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudio": {
+      "location": {
+        "start": {
+          "line": 65,
+          "column": 4,
+          "index": 1634
+        },
+        "end": {
+          "line": 67,
+          "column": 5,
+          "index": 1712
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports audio.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if audio is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if audio is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudioOgg": {
+      "location": {
+        "start": {
+          "line": 75,
+          "column": 4,
+          "index": 1864
+        },
+        "end": {
+          "line": 81,
+          "column": 5,
+          "index": 2044
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client can play ogg audio format.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudioMp3": {
+      "location": {
+        "start": {
+          "line": 89,
+          "column": 4,
+          "index": 2196
+        },
+        "end": {
+          "line": 95,
+          "column": 5,
+          "index": 2377
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client can play mp3 audio format.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudioWav": {
+      "location": {
+        "start": {
+          "line": 103,
+          "column": 4,
+          "index": 2535
+        },
+        "end": {
+          "line": 109,
+          "column": 5,
+          "index": 2717
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client can play wave audio wave format.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudioAu": {
+      "location": {
+        "start": {
+          "line": 117,
+          "column": 4,
+          "index": 2868
+        },
+        "end": {
+          "line": 123,
+          "column": 5,
+          "index": 3049
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client can play au audio format.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getAudioAif": {
+      "location": {
+        "start": {
+          "line": 131,
+          "column": 4,
+          "index": 3201
+        },
+        "end": {
+          "line": 137,
+          "column": 5,
+          "index": 3384
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client can play aif audio format.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVideo": {
+      "location": {
+        "start": {
+          "line": 145,
+          "column": 4,
+          "index": 3538
+        },
+        "end": {
+          "line": 147,
+          "column": 5,
+          "index": 3616
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports video.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if video is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if video is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVideoOgg": {
+      "location": {
+        "start": {
+          "line": 155,
+          "column": 4,
+          "index": 3761
+        },
+        "end": {
+          "line": 161,
+          "column": 5,
+          "index": 3966
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports ogg video.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVideoH264": {
+      "location": {
+        "start": {
+          "line": 169,
+          "column": 4,
+          "index": 4111
+        },
+        "end": {
+          "line": 175,
+          "column": 5,
+          "index": 4325
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports mp4 video.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVideoWebm": {
+      "location": {
+        "start": {
+          "line": 183,
+          "column": 4,
+          "index": 4471
+        },
+        "end": {
+          "line": 189,
+          "column": 5,
+          "index": 4675
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports webm video.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String} \"\" or \"maybe\" or \"probably\"",
+            "type": "String",
+            "description": " \"\" or \"maybe\" or \"probably\""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getLocalStorage": {
+      "location": {
+        "start": {
+          "line": 197,
+          "column": 4,
+          "index": 4845
+        },
+        "end": {
+          "line": 208,
+          "column": 5,
+          "index": 5283
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports local storage.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if local storage is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if local storage is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getSessionStorage": {
+      "location": {
+        "start": {
+          "line": 216,
+          "column": 4,
+          "index": 5457
+        },
+        "end": {
+          "line": 227,
+          "column": 5,
+          "index": 5907
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports session storage.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if session storage is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if session storage is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getUserDataStorage": {
+      "location": {
+        "start": {
+          "line": 236,
+          "column": 4,
+          "index": 6131
+        },
+        "end": {
+          "line": 250,
+          "column": 5,
+          "index": 6555
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports user data to persist data. This is only\n relevant for IE &lt; 8.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if the user data is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if the user data is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getClassList": {
+      "location": {
+        "start": {
+          "line": 259,
+          "column": 4,
+          "index": 6796
+        },
+        "end": {
+          "line": 265,
+          "column": 5,
+          "index": 6985
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the browser supports CSS class lists.\n https://developer.mozilla.org/en-US/docs/DOM/element.classList</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if class list is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if class list is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getXPath": {
+      "location": {
+        "start": {
+          "line": 273,
+          "column": 4,
+          "index": 7136
+        },
+        "end": {
+          "line": 275,
+          "column": 5,
+          "index": 7188
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if XPath could be used.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if xpath is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if xpath is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getXul": {
+      "location": {
+        "start": {
+          "line": 283,
+          "column": 4,
+          "index": 7335
+        },
+        "end": {
+          "line": 294,
+          "column": 5,
+          "index": 7573
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if XUL could be used.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if XUL is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if XUL is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getSvg": {
+      "location": {
+        "start": {
+          "line": 302,
+          "column": 4,
+          "index": 7719
+        },
+        "end": {
+          "line": 312,
+          "column": 5,
+          "index": 8055
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if SVG could be used</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if SVG is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if SVG is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getVml": {
+      "location": {
+        "start": {
+          "line": 320,
+          "column": 4,
+          "index": 8200
+        },
+        "end": {
+          "line": 328,
+          "column": 5,
+          "index": 8531
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if VML is supported</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if VML is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if VML is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getCanvas": {
+      "location": {
+        "start": {
+          "line": 336,
+          "column": 4,
+          "index": 8683
+        },
+        "end": {
+          "line": 338,
+          "column": 5,
+          "index": 8750
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if canvas could be used</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if canvas is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if canvas is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getDataUrl": {
+      "location": {
+        "start": {
+          "line": 349,
+          "column": 4,
+          "index": 8984
+        },
+        "end": {
+          "line": 359,
+          "column": 5,
+          "index": 9400
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Asynchronous check for using data urls.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "callback {Function} The function which should be executed as\n   soon as the check is done.",
+            "paramName": "callback",
+            "description": " The function which should be executed as\n   soon as the check is done.",
+            "type": "Function"
+          }
+        ],
+        "@ignore": [
+          {
+            "name": "@ignore",
+            "body": "Image"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getDataset": {
+      "location": {
+        "start": {
+          "line": 367,
+          "column": 4,
+          "index": 9554
+        },
+        "end": {
+          "line": 369,
+          "column": 5,
+          "index": 9623
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Checks if dataset could be used</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if dataset is supported.",
+            "type": "Boolean",
+            "description": " <code>true</code> if dataset is supported."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getContains": {
+      "location": {
+        "start": {
+          "line": 377,
+          "column": 4,
+          "index": 9780
+        },
+        "end": {
+          "line": 380,
+          "column": 5,
+          "index": 9920
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for element.contains</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if element.contains is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if element.contains is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getCompareDocumentPosition": {
+      "location": {
+        "start": {
+          "line": 388,
+          "column": 4,
+          "index": 10107
+        },
+        "end": {
+          "line": 392,
+          "column": 5,
+          "index": 10246
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for element.compareDocumentPosition</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if element.compareDocumentPosition is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if element.compareDocumentPosition is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getTextContent": {
+      "location": {
+        "start": {
+          "line": 401,
+          "column": 4,
+          "index": 10464
+        },
+        "end": {
+          "line": 404,
+          "column": 5,
+          "index": 10587
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for element.textContent. Legacy IEs do not support this, use\n innerText instead.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if textContent is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if textContent is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getFullScreen": {
+      "location": {
+        "start": {
+          "line": 412,
+          "column": 4,
+          "index": 10759
+        },
+        "end": {
+          "line": 420,
+          "column": 5,
+          "index": 10983
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Whether the client supports the fullscreen API.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if fullscreen is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if fullscreen is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getConsole": {
+      "location": {
+        "start": {
+          "line": 428,
+          "column": 4,
+          "index": 11135
+        },
+        "end": {
+          "line": 430,
+          "column": 5,
+          "index": 11207
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for a console object.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if a console is available.",
+            "type": "Boolean",
+            "description": " <code>true</code> if a console is available."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getNaturalDimensions": {
+      "location": {
+        "start": {
+          "line": 439,
+          "column": 4,
+          "index": 11441
+        },
+        "end": {
+          "line": 445,
+          "column": 5,
+          "index": 11636
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for the <code>naturalHeight</code> and <code>naturalWidth</code>\n image element attributes.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if both attributes are supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if both attributes are supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getHistoryState": {
+      "location": {
+        "start": {
+          "line": 453,
+          "column": 4,
+          "index": 11811
+        },
+        "end": {
+          "line": 459,
+          "column": 5,
+          "index": 12030
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for HTML5 history manipulation support.</p>"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if the HTML5 history API is supported",
+            "type": "Boolean",
+            "description": " <code>true</code> if the HTML5 history API is supported"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getSelection": {
+      "location": {
+        "start": {
+          "line": 470,
+          "column": 4,
+          "index": 12450
+        },
+        "end": {
+          "line": 478,
+          "column": 5,
+          "index": 12673
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the name of the native object/function used to access the\n document's text selection.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{String|null} <code>getSelection</code> if the standard window.getSelection\n function is available; <code>selection</code> if the MS-proprietary\n document.selection object is available; <code>null</code> if no known\n text selection API is available.",
+            "type": "String|null",
+            "description": " <code>getSelection</code> if the standard window.getSelection\n function is available; <code>selection</code> if the MS-proprietary\n document.selection object is available; <code>null</code> if no known\n text selection API is available."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "getIsEqualNode": {
+      "location": {
+        "start": {
+          "line": 485,
+          "column": 4,
+          "index": 12832
+        },
+        "end": {
+          "line": 487,
+          "column": 5,
+          "index": 12929
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Check for the isEqualNode DOM method.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Boolean} <code>true</code> if isEqualNode is supported by DOM nodes",
+            "type": "Boolean",
+            "description": " <code>true</code> if isEqualNode is supported by DOM nodes"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 490,
+        "column": 2,
+        "index": 12938
+      },
+      "end": {
+        "line": 536,
+        "column": 3,
+        "index": 15344
+      }
+    }
+  },
+  "descendants": []
+}
