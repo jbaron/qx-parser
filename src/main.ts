@@ -2,13 +2,13 @@ import * as path from "path";
 import * as fs from "fs";
 
 /**
-	* The different types referred to in the JSON API file
-	*/
+ * The different types referred to in the JSON API file
+ */
 class Types {
     static Class = "class";
     static Methods = "methods";
     static MethodsStatic = "methods-static";
-    static Method = "method";
+    static Method = "function";
     static Constructor = "constructor";
     static Properties = "properties"
     static Property = "property";
@@ -18,10 +18,48 @@ class Types {
     static Param = "param";
 }
 
+
+interface Member {
+    "type": string,
+    "access": string,
+    "overriddenFrom": string,
+    "fromProperty" : string,
+    jsdoc?: JSDoc
+}
+
+interface Param {
+    paramName: string,
+    type: string | Array<string>,
+    optional?: boolean,
+}
+
+interface Return {
+    type: string | Array<string>,
+}
+
+interface JSDoc {
+    "@param"? : Array<Param>,
+    "@return"? : Array<Return>
+}
+
+interface Construct {
+    jsdoc: JSDoc
+}
+
+interface Property {
+    name: string;
+    check: string;
+    nullable: boolean;
+    type: Types;
+    event?: string;
+    access?: string;
+    overriddenFrom?: string;
+}
+
 /**
-  * The possible attributes keys
-  */
-interface Attributes {
+ * This is the format of the Qooxdoo JSON API file.
+ */
+interface API {
     packageName?: string;
     name?: string;
     fromProperty?: string;
@@ -29,23 +67,20 @@ interface Attributes {
     check?: string;
     allowNull?: string;
     superClass?: string;
+    isSingleton?: boolean;
     type?: string;
     overriddenFrom?: string;
-    mixins?: string;
+    mixins: Array<string>;
     event?: string;
     dimensions?: number;
     optional?: boolean;
-    interfaces?: string;
+    interfaces: Array<string>;
     docFrom?: string;
-}
-
-/**
-	* This is the format of the Qooxdoo JSON API file.
-	*/
-interface Fmt {
-    attributes: Attributes;
-    children: Array<Fmt>;
-    type: string;
+    children: Array<API>;
+    properties?: Map<string, Property>;
+    construct?: Construct;
+    members?: Map<string, Member>;
+    statics?:  Map<string, Member>;
 }
 
 enum ClassType {
@@ -53,9 +88,7 @@ enum ClassType {
     "class"
 }
 
-
 const indent = "    ";
-
 
 // This is the string that contains the full declaration
 const time = new Date();
@@ -63,17 +96,17 @@ let output = `// Generated declaration file at ${time}\n`;
 
 
 /**
-  * Write a piece of code to the declaration file
-  */
+ * Write a piece of code to the declaration file
+ */
 function write(msg) {
     output += msg;
 }
 
 
 /**
-	* This class loads the Qooxdoo API files that are passed to the constructor
-	* and generates a declaration file out of that.
-	*/
+ * This class loads the Qooxdoo API files that are passed to the constructor
+ * and generates a declaration file out of that.
+ */
 class Parser {
 
     // Check for missing classes and add those files if required.
@@ -92,7 +125,7 @@ class Parser {
     static AVOID_DUPLICATES = true;
 
     // Where to find the API documentation json files
-    static BASE_DIR = "api_7.x/";
+    static BASE_DIR = "api/";
 
     // Contains the mapping from Qooxdoo types to TypeScript types
     private typeMappings: Map<string, string>;
@@ -116,7 +149,7 @@ class Parser {
         this.fileNames.forEach((fileName) => {
             if ((!fileName) || (fileName.indexOf("//") === 0)) return;
             try {
-                const src: Fmt = this.loadAPIFile(fileName);
+                const src: API = this.loadAPIFile(fileName);
 
                 // Reset the global methods list.
                 this.processedMethods = {};
@@ -125,52 +158,61 @@ class Parser {
                 this.writeModule(src);
             } catch (err) {
                 if (Parser.LOG_LEVEL > 1) console.error("processed file: " + fileName + " error: " + err);
+                throw err
             }
         });
     }
 
-	/**
-		* Load the type mappings from the config file
-		*/
+    /**
+     * Load the type mappings from the config file
+     */
     private loadTypeMappings() {
         const content = fs.readFileSync("type_mapping.json", "UTF-8");
         this.typeMappings = JSON.parse(content);
     }
 
-	/**
-		* Load the type mappings from the config file
-		*/
+    /**
+     * Load the type mappings from the config file
+     */
     private loadFileNames() {
-        const content = fs.readFileSync("files7.txt", "UTF-8");
+        const content = fs.readFileSync("files.txt", "UTF-8");
         this.fileNames = content.split("\n");
     }
 
 
-	/**
-		* Load a single API file
-		*/
-    private loadAPIFile(name): Fmt {
+    /**
+     * Load a single API file
+     */
+    private loadAPIFile(name): API {
         if (Parser.LOG_LEVEL > 3) console.info("Parsing API file" + name);
         const fileName = path.join(Parser.BASE_DIR, name);
         const content = fs.readFileSync(fileName, "UTF-8");
+        const result = JSON.parse(content, (k,v) => {
+            if(typeof v !== 'object') return v;    
+            if (['members','properties','statics'].indexOf(k) < 0 ) return v;
+            let m = new Map();
+            for(k in v) m.set(k, v[k]);
+            return m;
+        });
+        return result
         return JSON.parse(content);
     }
 
-	/**
-	  * Write some util declarations out that will help with the rest
-	  */
+    /**
+     * Write some util declarations out that will help with the rest
+     */
     private writeBase() {
         const content = fs.readFileSync("base_declaration.txt", "UTF-8");
         write(content);
     }
 
 
-	/**
-	  * Check if q qx type is yet unknown and add it then to the 
-	  * file list to be parsed. This way dependencies are resolved
-	  * and added to the declaration file.
-	  * 
-	  */
+    /**
+     * Check if q qx type is yet unknown and add it then to the
+     * file list to be parsed. This way dependencies are resolved
+     * and added to the declaration file.
+     *
+     */
     addIfNewDependency(t: string) {
         if (!t) return;
         t = t.trim();
@@ -183,12 +225,21 @@ class Parser {
         }
     }
 
-	/**
-	  * Do the mapping of types from Qooxdoo to TypeScript
-	  */
+    /**
+     * Do the mapping of types from Qooxdoo to TypeScript
+     */
     getType(t: string) {
         const defaultType = "any";
         if (!t) return defaultType;
+
+        if (t.indexOf("|") >= 0) {
+            return t.split("|").map( (v) => this.getType(v)).join("|")
+        }
+
+        if (t.endsWith("[]")) {
+            return this.getType(t.substring(0, t.length - 2 )) + "[]"
+        }
+
 
         // Check if we have a mapping for this type
         if (this.typeMappings.hasOwnProperty(t)) {
@@ -205,27 +256,28 @@ class Parser {
 
         // We don't know the type
         if (Parser.LOG_LEVEL > 2) console.error("Unknown type: " + t);
-        return defaultType;
+        return t;
     }
 
 
-	/**
-	  * Write a constructor
-	  */
-    writeConstructor(d: Fmt[]) {
-        d.forEach((m) => {
-            if (m.type === Types.Method) {
-                write(indent + "constructor (");
-                this.writeParameters(m, true);
-                write(");\n");
-            }
-        });
+    /**
+     * Write a constructor
+     */
+    writeConstructor(d: API) {
+        // Don't write empty constructors
+        if (! (d.construct && d.construct.jsdoc && d.construct.jsdoc["@param"])) return
+
+        write(indent + "constructor (");
+
+        // We make constructor parameters optional, since meta-data too often incomplete
+        this.writeParameters(d.construct.jsdoc, true);
+        write(");\n");
     }
 
-	/**
-		* Utility function to find the child of a certain type
-		*/
-    findChildByType(t: string, parent: Fmt): Fmt {
+    /**
+     * Utility function to find the child of a certain type
+     */
+    findChildByType(t: string, parent: API): API {
         if (!parent) return null;
         if (!parent.children) return null;
         let result = null;
@@ -243,22 +295,70 @@ class Parser {
         return result;
     }
 
-	/**
-		* Write all the methods of a type
-		*/
-    writeMethods(d: Fmt[], isStatic = false, isMixin = false) {
-        d.forEach((m) => {
+
+     /**
+     * Write all the methods of a type
+     */
+      writeStatics(d: API, isMixin = false) {
+        if (! d.statics) return
+        d.statics.forEach((m, name, _) => {
             if (m.type === Types.Method) {
                 this.fromProperty = null;
-                if (m.attributes && m.attributes.fromProperty) {
-                    this.fromProperty = m.attributes.fromProperty
+                if (m.fromProperty) {
+                    this.fromProperty = m.fromProperty
                 }
 
                 // Is this really a method in a based class
-                if (m.attributes.overriddenFrom) return;
+                if (m.overriddenFrom) return;
 
                 // Check if we already processed this method as part of mixin or interface
-                if (this.processedMethods[ m.attributes.name ]) return;
+                if (this.processedMethods[name]) return;
+
+            
+                // Seems access when defined is private, protected and internal
+                // We all map this to private
+                // if ((!m.attributes.access) || (m.attributes.access === "protected")) {
+
+                if (Parser.LOG_LEVEL > 3) console.info("Processing method " + name);
+
+                let modifier = "";
+                this.processedMethods[name] = true;
+
+                if (m.access) {
+                    if (m.access === "protected") modifier = "protected ";
+                    if (m.access === "private") return;
+                }
+
+                if (isMixin && (modifier == "protected ")) return;
+
+                write(indent + modifier + "static " + name + "(");
+                this.writeParameters(m.jsdoc);
+                write(")");
+                this.writeReturnType(m.jsdoc);
+                write("\n");
+                // }
+            }
+        });
+    }
+
+
+    /**
+     * Write all the methods of a type
+     */
+    writeMethods(d: API, isStatic = false, isMixin = false) {
+        if (! d.members) return
+        d.members.forEach((m, name, _) => {
+            if (m.type === Types.Method) {
+                this.fromProperty = null;
+                if (m.fromProperty) {
+                    this.fromProperty = m.fromProperty
+                }
+
+                // Is this really a method in a based class
+                if (m.overriddenFrom) return;
+
+                // Check if we already processed this method as part of mixin or interface
+                if (this.processedMethods[name]) return;
 
                 // var modifier = "public";
                 const staticClause = isStatic ? "static " : "";
@@ -267,145 +367,144 @@ class Parser {
                 // We all map this to private
                 // if ((!m.attributes.access) || (m.attributes.access === "protected")) {
 
-                if (Parser.LOG_LEVEL > 3) console.info("Processing method " + m.attributes.name);
+                if (Parser.LOG_LEVEL > 3) console.info("Processing method " + name);
 
                 let modifier = "";
-                this.processedMethods[ m.attributes.name ] = true;
+                this.processedMethods[name] = true;
 
-                if (m.attributes.access) {
-                    if (m.attributes.access === "protected") modifier = "protected ";
-                    if (m.attributes.access === "private") return;
+                if (m.access) {
+                    if (m.access === "protected") modifier = "protected ";
+                    if (m.access === "private") return;
                 }
 
                 if (isMixin && (modifier == "protected ")) return;
 
-                write(indent + modifier + staticClause + m.attributes.name + "(");
-                this.writeParameters(m);
+                write(indent + modifier + staticClause + name + "(");
+                this.writeParameters(m.jsdoc);
                 write(")");
-                this.writeReturnType(m);
+                this.writeReturnType(m.jsdoc);
                 write("\n");
                 // }
             }
         });
     }
 
-	/**
+
+    cleanType(t: string) : string {
+        let result = t || "  "
+        if (result.indexOf(" ") >= 0) result = "any"
+        if (result.indexOf("(") >= 0) result = "any"
+        if (result.endsWith("?null")) result = result.replace("\?null", "|null")
+        if (result.endsWith("?undefined")) result = result.replace("\?undefined", "|undefined")
+        if (result.endsWith("?")) result = result.replace("\?", "|null")
+        return result
+    }
+
+    /**
      * Determine the return type of the method and write it
      */
-    writeReturnType(d: Fmt) {
+    writeReturnType(d: JSDoc) {    
         let returnType = "void";
-        let a = this.findChildByType(Types.Return, d);
-        a = this.findChildByType(Types.Types, a);
-        a = this.findChildByType(Types.Entry, a);
-        if (a && a.attributes.type) {
-            let type = a.attributes.type;
-            if (type === "var") {
-                type = this.properties[ this.fromProperty ];
-                console.log("Type determined for " + this.fromProperty + ":" + type);
+        if (d && d["@return"]) {
+            let type = d["@return"][0].type
+            if (Array.isArray(type)) {
+                returnType = type.map((v) => this.getType(v)).join("|")   
+            } else {
+                returnType = this.getType(type)    
             }
-            returnType = this.getType(type);
-            if (a.attributes.dimensions) returnType += "[]";
         }
-        write(":" + returnType + ";");
+        write(":" + this.cleanType(returnType) + ";");
     }
 
-	/**
-		* Write the specific type of one parameter. 
-		*/
-    writeParam(p: Fmt, forceOptional: boolean): boolean {
-        let type = "any";
-        write(p.attributes.name);
-        if (p.attributes.name == "varargs") forceOptional = true;
-        if (p.attributes.optional || forceOptional) write("?");
+    /**
+     * Write the specific type of one parameter.
+     */
+    writeParam(p: Param, forceOptional: boolean, index: Number): boolean {
+        if (p.paramName == "varargs") {
+            forceOptional = true;
+            write("..." + p.paramName);
+        } else {    
+            write(p.paramName || "param" + index);
+            if (p.optional || forceOptional) write("?");
+        }
         write(":");
-        let a = this.findChildByType(Types.Types, p);
-        a = this.findChildByType(Types.Entry, a);
-        if (a && a.attributes.type) {
-            type = this.getType(a.attributes.type);
-            if (a.attributes.dimensions) type += "[]";
+        if (Array.isArray(p.type)) {
+            let type = this.getType(p.type[0].toString())
+            write(type + "| null");
+        } else {
+            let type = this.getType(p.type)
+            write(this.cleanType(type));
         }
-        write(type);
-        return p.attributes.optional || forceOptional;
+        if (p.paramName == "varargs") write("[]");
+        return p.optional || forceOptional;
     }
 
-	/**
-      * Write out all the arguments of a method. Once one parameter is optional,
-      * the remaining ones are also optional (is a TypeScript requirement)
-      */
-    writeParameters(d: Fmt, optional = false) {
-        const params = this.findChildByType("params", d);
-        let first = true;
-        if (params) {
-            params.children.forEach((c) => {
-                if (c.type === Types.Param) {
-                    if (!first) write(","); else first = false;
-                    optional = this.writeParam(c, optional);
-                }
+    /**
+     * Write out all the arguments of a method. Once one parameter is optional,
+     * the remaining ones are also optional (is a TypeScript requirement)
+     */
+    writeParameters(d: JSDoc, optional = false) {
+        if (d && d["@param"]) {
+            let first = true;
+            d["@param"].forEach((c, index) => {
+                if (!first) write(","); else first = false;
+                optional = this.writeParam(c, optional, index);
             });
         }
     }
 
-	/**
-		* Write all the properties of a class, interface or mixin
-		*/
-    writeProperties(d: Fmt[]) {
-        // return; // lets not write properties
-        d.forEach((p) => {
+    /**
+     * Write all the properties of a class, interface or mixin
+     */
+    writeProperties(d: API) {
+        if (! d.properties) return
+        d.properties.forEach((p) => {
 
-            if ((p.type == Types.Property) && p.attributes.check) {
-                console.log("Setting property " + p.attributes.name + ":" + p.attributes.check);
-                if (p.attributes.check !== "var") this.properties[ p.attributes.name ] = p.attributes.check;
+            if ((p.type == Types.Property) && p.check) {
+                console.log("Setting property " + p.name + ":" + p.check);
+                if (p.check !== "var") this.properties[p.name] = p.check;
             }
             if (1 == 1) return;
 
             if (p.type !== Types.Property) return;
-            if (p.attributes.overriddenFrom) return; // property already defined in base class
-            if (p.attributes.check === "var") return; // not a real property. use getter/setter
-            if (p.attributes.event) return;  // if there is a event defined, use getter/setter
+            if (p.overriddenFrom) return; // property already defined in base class
+            if (p.check === "var") return; // not a real property. use getter/setter
+            if (p.event) return;  // if there is a event defined, use getter/setter
 
-            if ((!p.attributes.check) && (Parser.LOG_LEVEL > 2)) console.error("No type for attribute " + p.attributes.name);
+            if ((!p.check) && (Parser.LOG_LEVEL > 2)) console.error("No type for attribute " + p.name);
 
             let modifier = "";
-            if (p.attributes.access) {
-                if (p.attributes.access === "private") modifier = "private";
-                if (p.attributes.access === "protected") modifier = "protected";
+            if (p.access) {
+                if (p.access === "private") modifier = "private";
+                if (p.access === "protected") modifier = "protected";
             }
-            const type = this.getType(p.attributes.check);
-            write(modifier + " " + p.attributes.name + ":" + type + ";\n");
+            const type = this.getType(p.check);
+            write(modifier + " " + p.name + ":" + type + ";\n");
         });
     }
 
-	/**
-	  * Write the mixin methods and properties, thereby mixin it into a class. This method
-	  * is used for including methods from both mixins and interfaces
-	  */
+    /**
+     * Write the mixin methods and properties, thereby mixin it into a class. This method
+     * is used for including methods from both mixins and interfaces
+     */
     includeMixin(name: string) {
         name = name.trim();
         if (!name) return;
         this.addIfNewDependency(name);
 
-        const d: Fmt = this.loadAPIFile(name + ".json");
+        const fileName = name.replace(/\./g, "/")
 
-        this.runChildrenOfType(d, Types.Properties, (c) => {
-            this.writeProperties(c.children);
-        });
-
-        this.runChildrenOfType(d, Types.MethodsStatic, (c) => {
-            this.writeMethods(c.children, true, true);
-        });
-
-        this.runChildrenOfType(d, Types.Methods, (c) => {
-            this.writeMethods(c.children, false, true);
-        });
-
+        const d: API = this.loadAPIFile(fileName + ".json");
+        this.writeProperties(d);
+        this.writeMethods(d);
     }
 
-	/**
-	 * Implements used 
-	 */
-    writeImplementsClause(a: Attributes) {
-        const interfaces = a.interfaces || "";
-        const mixins = a.mixins || "";
+    /**
+     * Implements used
+     */
+    writeImplementsClause(a: API) {
+        const interfaces = a.interfaces;
+        const mixins = a.mixins;
 
         if ((!interfaces) && (!mixins)) {
             write(" {\n");
@@ -414,21 +513,21 @@ class Parser {
 
         // var impl = interfaces.split(",").concat(mixins.split(","));
 
-        if (interfaces) write(" implements " + interfaces);
+        if (interfaces.length > 0) write(" implements " + interfaces.join(","));
         write(" {\n");
 
 
-        interfaces.split(",").forEach((name) => {
+        interfaces.forEach((name) => {
             this.includeMixin(name);
         });
 
 
-        mixins.split(",").forEach((name) => {
+        mixins.forEach((name) => {
             this.includeMixin(name);
         });
     }
 
-    writeExtendsClause(a: Attributes) {
+    writeExtendsClause(a: API) {
         let extendsClause = "";
 
         if (a.superClass && (a.superClass !== "Object")) {
@@ -437,53 +536,42 @@ class Parser {
         write(extendsClause);
     }
 
-    runChildrenOfType(d: Fmt, type: string, fn: (param: Fmt) => void) {
-        d.children.forEach((c) => {
-            if (c.type === type) fn(c);
-        });
+
+    writeSingleton(a: API) {
+        if (a.isSingleton) 
+            write(`static getInstance() : ${a.name} ;\n`)
     }
 
-	/**
-		* Write the class or interface declaration
-		*/
-    writeClass(d: Fmt) {
+    /**
+     * Write the class or interface declaration
+     */
+    writeClass(d: API) {
 
-        const a = d.attributes;
-        if (Parser.LOG_LEVEL > 2) console.info("Processing class " + d.attributes.packageName + "." + a.name);
+        let prefix = d.packageName ? d.packageName + "." : ""
+        if (Parser.LOG_LEVEL > 2) console.info("Processing class " + prefix + d.name);
 
-        if (a.type === "interface") {
-          write(`interface ${a.name} `);  
+        if (d.type === "interface") {
+            write(`interface ${d.name} `);
         } else {
-          write (`class ${a.name} `);
+            write(`class ${d.name} `);
         }
 
-        this.writeExtendsClause(a);
-        this.writeImplementsClause(a);
-
-        this.runChildrenOfType(d, Types.Properties, (c) => {
-            this.writeProperties(c.children);
-        });
-
-        this.runChildrenOfType(d, Types.Constructor, (c) => {
-            this.writeConstructor(c.children);
-        });
-        this.runChildrenOfType(d, Types.MethodsStatic, (c) => {
-            this.writeMethods(c.children, true);
-        });
-
-        this.runChildrenOfType(d, Types.Methods, (c) => {
-            this.writeMethods(c.children);
-        });
-
+        this.writeExtendsClause(d);
+        this.writeImplementsClause(d);
+        this.writeSingleton(d);
+        this.writeProperties(d);
+        this.writeConstructor(d);
+        this.writeStatics(d);
+        this.writeMethods(d);
         write("\n}\n");
     }
 
 
-	/**
-		* Write the module declaration if any.
-		*/
-    writeModule(d: Fmt) {
-        const moduleName = d.attributes.packageName;
+    /**
+     * Write the module declaration if any.
+     */
+    writeModule(d: API) {
+        const moduleName = d.packageName;
 
         if (moduleName) {
             write(`declare module ${moduleName} {\n`);
@@ -498,9 +586,9 @@ class Parser {
 }
 
 /****************************************************************************
-		Here is where the processing is kicked of, reading the files from the
-		command arguments and start parsing them.
-*****************************************************************************/
+ Here is where the processing is kicked of, reading the files from the
+ command arguments and start parsing them.
+ *****************************************************************************/
 
 const files = process.argv.slice(2);
 const parser = new Parser();

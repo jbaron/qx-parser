@@ -1,0 +1,165 @@
+{
+  "className": "qx.ui.core.scroll.MRoll",
+  "packageName": "qx.ui.core.scroll",
+  "name": "MRoll",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 0,
+        "index": 793
+      },
+      "end": {
+        "line": 124,
+        "column": 3,
+        "index": 3553
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Mixin holding the handler for roll event. Please\n keep in mind that the including widget has to have the scroll bars\n implemented as child controls named <code>scrollbar-x</code> and\n <code>scrollbar-y</code> to get the handler working. Also, you have to\n attach the listener yourself.</p>"
+        }
+      ]
+    }
+  },
+  "type": "mixin",
+  "members": {
+    "_cancelRoll": {
+      "location": {
+        "start": {
+          "line": 28,
+          "column": 4,
+          "index": 855
+        },
+        "end": {
+          "line": 28,
+          "column": 21,
+          "index": 872
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_addRollHandling": {
+      "location": {
+        "start": {
+          "line": 33,
+          "column": 4,
+          "index": 972
+        },
+        "end": {
+          "line": 36,
+          "column": 5,
+          "index": 1123
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Responsible for adding the event listener needed for scroll handling.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_removeRollHandling": {
+      "location": {
+        "start": {
+          "line": 41,
+          "column": 4,
+          "index": 1225
+        },
+        "end": {
+          "line": 44,
+          "column": 5,
+          "index": 1385
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Responsible for removing the event listener needed for scroll handling.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onPointerDownForRoll": {
+      "location": {
+        "start": {
+          "line": 51,
+          "column": 4,
+          "index": 1557
+        },
+        "end": {
+          "line": 53,
+          "column": 5,
+          "index": 1632
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Handler for the pointerdown event which simply stops the momentum scrolling.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Pointer} pointerdown event",
+            "paramName": "e",
+            "description": " pointerdown event",
+            "type": "qx.event.type.Pointer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onRoll": {
+      "location": {
+        "start": {
+          "line": 60,
+          "column": 4,
+          "index": 1736
+        },
+        "end": {
+          "line": 122,
+          "column": 5,
+          "index": 3545
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Roll event handler</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "e {qx.event.type.Roll} Roll event",
+            "paramName": "e",
+            "description": " Roll event",
+            "type": "qx.event.type.Roll"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    }
+  },
+  "descendants": []
+}

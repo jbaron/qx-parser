@@ -1,0 +1,187 @@
+{
+  "className": "qx.module.event.Pinch",
+  "packageName": "qx.module.event",
+  "name": "Pinch",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 0,
+        "index": 592
+      },
+      "end": {
+        "line": 76,
+        "column": 3,
+        "index": 1842
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Normalization for the pinch gesture.</p>"
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.module.Event"
+        }
+      ],
+      "@group": [
+        {
+          "name": "@group",
+          "body": "Event_Normalization"
+        }
+      ]
+    }
+  },
+  "type": "class",
+  "statics": {
+    "TYPES": {
+      "location": {
+        "start": {
+          "line": 31,
+          "column": 4,
+          "index": 716
+        },
+        "end": {
+          "line": 31,
+          "column": 20,
+          "index": 732
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>List of event types to be normalized</p>"
+          }
+        ]
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "BIND_METHODS": {
+      "location": {
+        "start": {
+          "line": 33,
+          "column": 4,
+          "index": 739
+        },
+        "end": {
+          "line": 33,
+          "column": 30,
+          "index": 765
+        }
+      },
+      "type": "variable",
+      "access": "public"
+    },
+    "getScale": {
+      "location": {
+        "start": {
+          "line": 40,
+          "column": 4,
+          "index": 900
+        },
+        "end": {
+          "line": 42,
+          "column": 5,
+          "index": 953
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the calculated scale of this event.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Float} the scale value of this event.",
+            "type": "Float",
+            "description": " the scale value of this event."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    },
+    "normalize": {
+      "location": {
+        "start": {
+          "line": 53,
+          "column": 4,
+          "index": 1265
+        },
+        "end": {
+          "line": 67,
+          "column": 5,
+          "index": 1704
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Manipulates the native event object, adding methods if they're not\n already present</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "event {Event} Native event object",
+            "paramName": "event",
+            "description": " Native event object",
+            "type": "Event"
+          },
+          {
+            "name": "@param",
+            "body": "element {Element} DOM element the listener was attached to",
+            "paramName": "element",
+            "description": " DOM element the listener was attached to",
+            "type": "Element"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Event} Normalized event object",
+            "type": "Event",
+            "description": " Normalized event object"
+          }
+        ],
+        "@internal": [
+          {
+            "name": "@internal",
+            "body": ""
+          }
+        ]
+      },
+      "type": "function",
+      "access": "public"
+    }
+  },
+  "defer": {
+    "location": {
+      "start": {
+        "line": 70,
+        "column": 2,
+        "index": 1713
+      },
+      "end": {
+        "line": 75,
+        "column": 3,
+        "index": 1838
+      }
+    }
+  },
+  "descendants": []
+}

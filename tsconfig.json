@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target" : "ES6",
+        "target" : "ES2015",
         "preserveConstEnums": true,
         "outDir": "lib/"
     },

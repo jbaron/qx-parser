@@ -1,0 +1,619 @@
+{
+  "className": "qx.ui.mobile.container.MNativeScroll",
+  "packageName": "qx.ui.mobile.container",
+  "name": "MNativeScroll",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 0,
+        "index": 670
+      },
+      "end": {
+        "line": 341,
+        "column": 3,
+        "index": 8768
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": ""
+        }
+      ],
+      "@require": [
+        {
+          "name": "@require",
+          "body": "qx.module.Animation"
+        },
+        {
+          "name": "@require",
+          "body": "qx.module.Manipulating"
+        }
+      ]
+    }
+  },
+  "type": "mixin",
+  "construct": {
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 2,
+        "index": 730
+      },
+      "end": {
+        "line": 45,
+        "column": 3,
+        "index": 1235
+      }
+    }
+  },
+  "members": {
+    "_snapPoints": {
+      "location": {
+        "start": {
+          "line": 48,
+          "column": 4,
+          "index": 1255
+        },
+        "end": {
+          "line": 48,
+          "column": 21,
+          "index": 1272
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_onTrack": {
+      "location": {
+        "start": {
+          "line": 49,
+          "column": 4,
+          "index": 1278
+        },
+        "end": {
+          "line": 49,
+          "column": 18,
+          "index": 1292
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_snapTimeoutId": {
+      "location": {
+        "start": {
+          "line": 50,
+          "column": 4,
+          "index": 1298
+        },
+        "end": {
+          "line": 50,
+          "column": 24,
+          "index": 1318
+        }
+      },
+      "type": "variable",
+      "access": "protected"
+    },
+    "_onAppear": {
+      "location": {
+        "start": {
+          "line": 55,
+          "column": 4,
+          "index": 1393
+        },
+        "end": {
+          "line": 57,
+          "column": 5,
+          "index": 1442
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Event handler for <code>appear</code> event.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onTouchMove": {
+      "location": {
+        "start": {
+          "line": 64,
+          "column": 4,
+          "index": 1623
+        },
+        "end": {
+          "line": 71,
+          "column": 5,
+          "index": 1810
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Event handler for <code>touchmove</code> event.\n Needed for preventing iOS page bounce.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "evt {qx.event.type.Touch} touchmove event.",
+            "paramName": "evt",
+            "description": " touchmove event.",
+            "type": "qx.event.type.Touch"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onTrackStart": {
+      "location": {
+        "start": {
+          "line": 77,
+          "column": 4,
+          "index": 1947
+        },
+        "end": {
+          "line": 83,
+          "column": 5,
+          "index": 2102
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Event handler for <code>trackstart</code> events.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "evt {qx.event.type.Track} touchmove event.",
+            "paramName": "evt",
+            "description": " touchmove event.",
+            "type": "qx.event.type.Track"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_preventPageBounce": {
+      "location": {
+        "start": {
+          "line": 88,
+          "column": 4,
+          "index": 2231
+        },
+        "end": {
+          "line": 102,
+          "column": 5,
+          "index": 2733
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Prevents the iOS page bounce if scroll container reaches the upper or lower vertical scroll limit.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onTrackEnd": {
+      "location": {
+        "start": {
+          "line": 108,
+          "column": 4,
+          "index": 2868
+        },
+        "end": {
+          "line": 122,
+          "column": 5,
+          "index": 3165
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Event handler for <code>trackend</code> events.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "evt {qx.event.type.Track} touchmove event.",
+            "paramName": "evt",
+            "description": " touchmove event.",
+            "type": "qx.event.type.Track"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_onScroll": {
+      "location": {
+        "start": {
+          "line": 127,
+          "column": 4,
+          "index": 3241
+        },
+        "end": {
+          "line": 145,
+          "column": 5,
+          "index": 3712
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Event handler for <code>scroll</code> events.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_calcSnapPoints": {
+      "location": {
+        "start": {
+          "line": 150,
+          "column": 4,
+          "index": 3791
+        },
+        "end": {
+          "line": 168,
+          "column": 5,
+          "index": 4362
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Calculates the snapping points for the x/y axis.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_determineSnapPoint": {
+      "location": {
+        "start": {
+          "line": 176,
+          "column": 4,
+          "index": 4605
+        },
+        "end": {
+          "line": 198,
+          "column": 5,
+          "index": 5390
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Determines the next snap points for the passed current position.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "current {Integer} description",
+            "paramName": "current",
+            "description": " description",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "snapProperty {String} \"top\" or \"left\"",
+            "paramName": "snapProperty",
+            "description": " \"top\" or \"left\"",
+            "type": "String"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Integer} the determined snap point.",
+            "type": "Integer",
+            "description": " the determined snap point."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_snap": {
+      "location": {
+        "start": {
+          "line": 203,
+          "column": 4,
+          "index": 5472
+        },
+        "end": {
+          "line": 220,
+          "column": 5,
+          "index": 5975
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Snaps the scrolling area to the nearest snap point.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_refresh": {
+      "location": {
+        "start": {
+          "line": 225,
+          "column": 4,
+          "index": 6067
+        },
+        "end": {
+          "line": 227,
+          "column": 5,
+          "index": 6115
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Refreshes the scroll container. Recalculates the snap points.</p>"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_createScrollElement": {
+      "location": {
+        "start": {
+          "line": 234,
+          "column": 4,
+          "index": 6238
+        },
+        "end": {
+          "line": 236,
+          "column": 5,
+          "index": 6287
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Mixin method. Creates the scroll element.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Element} The scroll element",
+            "type": "Element",
+            "description": " The scroll element"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getPosition": {
+      "location": {
+        "start": {
+          "line": 242,
+          "column": 4,
+          "index": 6427
+        },
+        "end": {
+          "line": 247,
+          "column": 5,
+          "index": 6561
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the current scroll position</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Array} an array with <code>[scrollLeft,scrollTop]</code>.",
+            "type": "Array",
+            "description": " an array with <code>[scrollLeft,scrollTop]</code>."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getScrollContentElement": {
+      "location": {
+        "start": {
+          "line": 254,
+          "column": 4,
+          "index": 6700
+        },
+        "end": {
+          "line": 256,
+          "column": 5,
+          "index": 6753
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Mixin method. Returns the scroll content element.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Element} The scroll content element",
+            "type": "Element",
+            "description": " The scroll content element"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getScrollHeight": {
+      "location": {
+        "start": {
+          "line": 262,
+          "column": 4,
+          "index": 6882
+        },
+        "end": {
+          "line": 271,
+          "column": 5,
+          "index": 7092
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the scrolling height of the inner container.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} the scrolling height.",
+            "type": "Number",
+            "description": " the scrolling height."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_getScrollWidth": {
+      "location": {
+        "start": {
+          "line": 277,
+          "column": 4,
+          "index": 7219
+        },
+        "end": {
+          "line": 286,
+          "column": 5,
+          "index": 7426
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Returns the scrolling width of the inner container.</p>"
+          }
+        ],
+        "@return": [
+          {
+            "name": "@return",
+            "body": "{Number} the scrolling width.",
+            "type": "Number",
+            "description": " the scrolling width."
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    },
+    "_scrollTo": {
+      "location": {
+        "start": {
+          "line": 295,
+          "column": 4,
+          "index": 7710
+        },
+        "end": {
+          "line": 325,
+          "column": 5,
+          "index": 8364
+        }
+      },
+      "jsdoc": {
+        "@description": [
+          {
+            "name": "@description",
+            "body": "<p>Scrolls the wrapper contents to the x/y coordinates in a given period.</p>"
+          }
+        ],
+        "@param": [
+          {
+            "name": "@param",
+            "body": "x {Integer} X coordinate to scroll to.",
+            "paramName": "x",
+            "description": " X coordinate to scroll to.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "y {Integer} Y coordinate to scroll to.",
+            "paramName": "y",
+            "description": " Y coordinate to scroll to.",
+            "type": "Integer"
+          },
+          {
+            "name": "@param",
+            "body": "time {Integer} is always <code>0</code> for this mixin.",
+            "paramName": "time",
+            "description": " is always <code>0</code> for this mixin.",
+            "type": "Integer"
+          }
+        ]
+      },
+      "type": "function",
+      "access": "protected"
+    }
+  },
+  "destruct": {
+    "location": {
+      "start": {
+        "line": 328,
+        "column": 2,
+        "index": 8373
+      },
+      "end": {
+        "line": 340,
+        "column": 3,
+        "index": 8764
+      }
+    }
+  },
+  "descendants": []
+}

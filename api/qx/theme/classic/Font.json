@@ -1,0 +1,33 @@
+{
+  "className": "qx.theme.classic.Font",
+  "packageName": "qx.theme.classic",
+  "name": "Font",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0,
+        "index": 549
+      },
+      "end": {
+        "line": 69,
+        "column": 3,
+        "index": 1364
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>The classic qooxdoo font theme.</p>"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "descendants": []
+}

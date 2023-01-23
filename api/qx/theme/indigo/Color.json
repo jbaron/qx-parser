@@ -1,0 +1,33 @@
+{
+  "className": "qx.theme.indigo.Color",
+  "packageName": "qx.theme.indigo",
+  "name": "Color",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 0,
+        "index": 547
+      },
+      "end": {
+        "line": 121,
+        "column": 3,
+        "index": 3285
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>Indigo color theme</p>"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "descendants": []
+}

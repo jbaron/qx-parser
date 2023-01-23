@@ -34,11 +34,7 @@ tsc
 The file named tsconfig.json is used by `tsc` to get its configuration from.
 
 
-Todo
-==========
-There are a few things still to be done to create a better output file:
-
-1) Use smarter ways to get type info (like from referenced properties)
-2) Some parameters have multiple types, right now we are just picking the first one. 
-   Could use the TypeScript Union Types to deal with this.
-3) Ensure that the resulting declaration file is 100% correct TypeScript.
+Not Perfect
+===========
+The generated TypeScript declaration file gets its info from the meta data attached to the qooxdoo classes. Sometimes there might be a mistake in there, which would also result into a mistake in the declaration file. 
+But you can always cast an object to <any> and do amything you like with it.

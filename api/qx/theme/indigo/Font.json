@@ -1,0 +1,43 @@
+{
+  "className": "qx.theme.indigo.Font",
+  "packageName": "qx.theme.indigo",
+  "name": "Font",
+  "superClass": null,
+  "interfaces": [],
+  "mixins": [],
+  "functionName": null,
+  "clazz": {
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 0,
+        "index": 813
+      },
+      "end": {
+        "line": 75,
+        "column": 3,
+        "index": 1804
+      }
+    },
+    "jsdoc": {
+      "@description": [
+        {
+          "name": "@description",
+          "body": "<p>The simple qooxdoo font theme.</p>"
+        }
+      ],
+      "@asset": [
+        {
+          "name": "@asset",
+          "body": "qx/decoration/Indigo/font/JosefinSlab-SemiBold.woff"
+        },
+        {
+          "name": "@asset",
+          "body": "qx/decoration/Indigo/font/JosefinSlab-SemiBold.ttf"
+        }
+      ]
+    }
+  },
+  "type": "theme",
+  "descendants": []
+}

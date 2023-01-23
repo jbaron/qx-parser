@@ -1,7 +1,7 @@
 {
   "name": "qx-parser",
-  "version": "1.0.0",
-  "description": "This application creates a TypeScript declaration file for Qooxdoo",
+  "version": "2.0.0",
+  "description": "This application creates a TypeScript declaration file for Qooxdoo 7.x",
   "author": "JBaron",
   "scripts": {
     "start": "node lib/main.js",

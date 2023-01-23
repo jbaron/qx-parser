@@ -29,7 +29,6 @@
   "Stylesheet" : "StyleSheet",
   "Node" : "Node",
   "Custom check function" : "Custom check function",
-  "Error"  :  "ErrorImpl",
   "Element"  :  "HTMLElement",
   "RegExp"  :  "RegExp",
   "var" :  "any",
@@ -41,5 +40,19 @@
   "Double":  "number",
   "Float":    "number",
   "PositiveInteger": "number",
-  "PositiveNumber": "number"
+  "PositiveNumber": "number",
+  "qx.bom.request" : "qx.bom.request.IRequest",
+  "Map[]" : "IMap[]",
+  "DOM" : "any",
+  "DOMNode" : "any",
+  "arguments": "any",
+  "Iterable": "Iterable<any>",
+  "bool" : "boolean",
+  "NaN" : "number",
+  "[object Object]" : "any",
+  "Unsigned" : "any",
+  "element" : "Element",
+  "*" : "any",
+  "Table" : "qx.ui.table.Table",
+  "qxWeb" : "any"
 }
