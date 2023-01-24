@@ -20,10 +20,11 @@ class Types {
 
 
 interface Member {
-    "type": string,
-    "access": string,
-    "overriddenFrom": string,
-    "fromProperty" : string,
+    type: string,
+    access: string,
+    overriddenFrom: string,
+    fromProperty : string,
+    inherited: boolean,
     jsdoc?: JSDoc
 }
 
@@ -56,6 +57,9 @@ interface Property {
     overriddenFrom?: string;
 }
 
+
+
+
 /**
  * This is the format of the Qooxdoo JSON API file.
  */
@@ -81,6 +85,7 @@ interface API {
     construct?: Construct;
     members?: Map<string, Member>;
     statics?:  Map<string, Member>;
+    aliases?: any;
 }
 
 enum ClassType {
@@ -130,6 +135,9 @@ class Parser {
     // Contains the mapping from Qooxdoo types to TypeScript types
     private typeMappings: Map<string, string>;
 
+     // Contains the mapping from methods names to full tyepscripe declarions
+     private methodMappings: Map<string, string>;
+
     private fileNames: string[];
 
     private processedMethods = {};
@@ -140,6 +148,7 @@ class Parser {
 
     constructor() {
         this.loadTypeMappings();
+        this.loadMethodMappings();
         this.loadFileNames();
     }
 
@@ -169,6 +178,14 @@ class Parser {
     private loadTypeMappings() {
         const content = fs.readFileSync("type_mapping.json", "UTF-8");
         this.typeMappings = JSON.parse(content);
+    }
+
+      /**
+     * Load the type mappings from the config file
+     */
+      private loadMethodMappings() {
+        const content = fs.readFileSync("method_mapping.json", "UTF-8");
+        this.methodMappings = JSON.parse(content);
     }
 
     /**
@@ -274,6 +291,14 @@ class Parser {
         write(");\n");
     }
 
+       /**
+        * Write any aliases properties
+        */
+       writeAliases(d: API) {
+        if (! d.aliases) return
+        write(indent + "static aliases: any;\n");
+    }
+
     /**
      * Utility function to find the child of a certain type
      */
@@ -356,9 +381,11 @@ class Parser {
 
                 // Is this really a method in a based class
                 if (m.overriddenFrom) return;
+                if (m.inherited) return;
 
                 // Check if we already processed this method as part of mixin or interface
                 if (this.processedMethods[name]) return;
+
 
                 // var modifier = "public";
                 const staticClause = isStatic ? "static " : "";
@@ -378,6 +405,11 @@ class Parser {
                 }
 
                 if (isMixin && (modifier == "protected ")) return;
+
+                if (this.methodMappings[name]) {
+                    write(indent + this.methodMappings[name] + ";\n")
+                    return
+                }    
 
                 write(indent + modifier + staticClause + name + "(");
                 this.writeParameters(m.jsdoc);
@@ -559,6 +591,7 @@ class Parser {
         this.writeExtendsClause(d);
         this.writeImplementsClause(d);
         this.writeSingleton(d);
+        this.writeAliases(d);
         this.writeProperties(d);
         this.writeConstructor(d);
         this.writeStatics(d);

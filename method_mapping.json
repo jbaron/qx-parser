@@ -1,0 +1,6 @@
+{
+    "setPadding" : "setPadding(...args: number[]): void",
+    "setMargin" : "setMargin(...args: number[]): void",
+    "setContentPadding": "setContentPadding(...args: number[]): void",
+    "setOverflow": "setOverflow(...args: string[]): void"
+}
