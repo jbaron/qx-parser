@@ -33,7 +33,7 @@
   "RegExp"  :  "RegExp",
   "var" :  "any",
   "Array" :  "qx.data.Array",
-  "Object" :  "any",
+  "Object" :  "{}",
   "Map" :  "IMap",
   "Integer": "number",
   "Number": "number",

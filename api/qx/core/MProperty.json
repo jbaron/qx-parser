@@ -74,7 +74,7 @@
           {
             "name": "@return",
             "body": "{Object} Returns this instance if <code>data</code> is a map\n   or a non-generated setter is called; otherwise returns <code>value</code>.",
-            "type": "qx.core.Object",
+            "type": "this",
             "description": " Returns this instance if <code>data</code> is a map\n   or a non-generated setter is called; otherwise returns <code>value</code>."
           }
         ],

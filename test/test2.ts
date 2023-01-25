@@ -104,8 +104,7 @@ function createTable(): qx.ui.core.Widget {
     tableModel.setColumnEditable(1, true);
 
     // table
-    const table = new qx.ui.table.Table(tableModel);
-    table.set({
+    const table = new qx.ui.table.Table(tableModel).set({
         decorator: null
     });
 
@@ -123,8 +122,7 @@ function createTable(): qx.ui.core.Widget {
  */ 
 function createTree(): qx.ui.core.Widget {
     // create the tree
-    const tree = new qx.ui.tree.Tree();
-    tree.set({ width: 150, height: 300 });
+    const tree = new qx.ui.tree.Tree().set({ width: 150, height: 300 });
 
     // create and set the tree root
     const root = new qx.ui.tree.TreeFolder("Desktop");
