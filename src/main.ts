@@ -228,9 +228,8 @@ class Parser {
      * Check if q qx type is yet unknown and add it then to the
      * file list to be parsed. This way dependencies are resolved
      * and added to the declaration file.
-     *
      */
-    addIfNewDependency(t: string) {
+    private addIfNewDependency(t: string) {
         if (!t) return;
         t = t.trim();
         if (t.substring(0, 2) === "qx") {
@@ -242,19 +241,45 @@ class Parser {
         }
     }
 
+
+
+    private getTypeObject(t: any) : string {
+        let result = this.getTypeString(t.type)
+        if (t.dimensions) result += []
+        return result
+
+    }
+
+    private getType(t: any) : string {
+
+        if (t === undefined) return "any"
+       
+        if (Array.isArray(t)) {
+            const result = t.map((value) => this.getType(value)).join("|")
+            return result    
+        }
+
+        if (typeof t === 'string') return this.getTypeString(t)
+
+        // it is an object
+        return this.getTypeObject(t)
+
+    }
+
+
     /**
      * Do the mapping of types from Qooxdoo to TypeScript
      */
-    getType(t: string) {
+    private getTypeString(t: string) : string {
         const defaultType = "any";
         if (!t) return defaultType;
 
         if (t.indexOf("|") >= 0) {
-            return t.split("|").map( (v) => this.getType(v)).join("|")
+            return t.split("|").map( (v) => this.getTypeString(v)).join("|")
         }
 
         if (t.endsWith("[]")) {
-            return this.getType(t.substring(0, t.length - 2 )) + "[]"
+            return this.getTypeString(t.substring(0, t.length - 2 )) + "[]"
         }
 
 
@@ -322,8 +347,8 @@ class Parser {
 
 
      /**
-     * Write all the methods of a type
-     */
+      * Write all the methods of a type
+      */
       writeStatics(d: API, isMixin = false) {
         if (! d.statics) return
         d.statics.forEach((m, name, _) => {
@@ -439,11 +464,7 @@ class Parser {
         let returnType = "void";
         if (d && d["@return"]) {
             let type = d["@return"][0].type
-            if (Array.isArray(type)) {
-                returnType = type.map((v) => this.getType(v)).join("|")   
-            } else {
-                returnType = this.getType(type)    
-            }
+            returnType = this.getType(type)
         }
         write(":" + this.cleanType(returnType) + ";");
     }
@@ -460,13 +481,9 @@ class Parser {
             if (p.optional || forceOptional) write("?");
         }
         write(":");
-        if (Array.isArray(p.type)) {
-            let type = this.getType(p.type[0].toString())
-            write(type + "| null");
-        } else {
-            let type = this.getType(p.type)
-            write(this.cleanType(type));
-        }
+        let type = this.getType(p.type)
+        write(this.cleanType(type));
+        
         if (p.paramName == "varargs") write("[]");
         return p.optional || forceOptional;
     }
@@ -510,7 +527,7 @@ class Parser {
                 if (p.access === "private") modifier = "private";
                 if (p.access === "protected") modifier = "protected";
             }
-            const type = this.getType(p.check);
+            const type = this.getTypeString(p.check);
             write(modifier + " " + p.name + ":" + type + ";\n");
         });
     }
@@ -563,7 +580,7 @@ class Parser {
         let extendsClause = "";
 
         if (a.superClass && (a.superClass !== "Object")) {
-            extendsClause = "extends " + this.getType(a.superClass);
+            extendsClause = "extends " + this.getTypeString(a.superClass);
         }
         write(extendsClause);
     }
