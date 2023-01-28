@@ -1,4 +1,4 @@
-// Generated declaration file at Thu Jan 26 2023 09:49:23 GMT+0100 (Central European Standard Time)
+// Generated declaration file at Sat Jan 28 2023 08:30:32 GMT+0100 (Central European Standard Time)
 
 interface IMap {
     [key: string]: any;
@@ -372,9 +372,9 @@ declare module qx.ui.decoration {
         resetTop(): void;
         setBottom(value: any): void;
         resetBottom(): void;
-        setWidth(value: any): void;
+        setWidth(...args: number[]): void;
         resetWidth(): void;
-        setStyle(value: any): void;
+        setStyle(...args: any[]): void;
         resetStyle(): void;
         setColor(value: any): void;
         resetColor(): void;
@@ -506,9 +506,9 @@ declare module qx.ui.decoration {
         resetTop(): void;
         setBottom(value: any): void;
         resetBottom(): void;
-        setWidth(value: any): void;
+        setWidth(...args: number[]): void;
         resetWidth(): void;
-        setStyle(value: any): void;
+        setStyle(...args: any[]): void;
         resetStyle(): void;
         setColor(value: any): void;
         resetColor(): void;
@@ -523,6 +523,7 @@ declare module qx.ui.decoration {
         protected _getDefaultInsets(): IMap;
         protected _isInitialized(): boolean;
         protected _resetInsets(): void;
+        destruct(): void;
 
     }
 }
@@ -560,6 +561,7 @@ declare module qx.ui.tree.core {
         getParent(): qx.ui.tree.core.AbstractTreeItem;
         setParent(value: qx.ui.tree.core.AbstractTreeItem): void;
         resetParent(): void;
+        destruct(): void;
 
     }
 }
@@ -607,6 +609,7 @@ declare module qx.ui.tree.core {
         getLabel(): string;
         setLabel(value: string): void;
         resetLabel(): void;
+        destruct(): void;
 
     }
 }
@@ -669,6 +672,7 @@ declare module qx.ui.tree.core {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -678,6 +682,7 @@ declare module qx.ui.tree.core {
         protected _onOpen(): void;
         protected _onClose(): void;
         protected _onChangeBubble(): void;
+        destruct(): void;
 
     }
 }
@@ -757,6 +762,7 @@ declare module qx.ui.tree.provider {
         protected _onPool(item: qx.ui.core.Widget): void;
         protected _onItemCreated(event: qx.event.type.Data): void;
         protected _onChangeDelegate(event: qx.event.type.Data): void;
+        destruct(): void;
 
     }
 }
@@ -886,6 +892,7 @@ declare module qx.ui.tree {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -992,6 +999,7 @@ declare module qx.ui.tree {
         isRootOpenClose(): boolean;
         setRootOpenClose(value: boolean): void;
         resetRootOpenClose(): void;
+        destruct(): void;
 
     }
 }
@@ -1106,6 +1114,7 @@ declare module qx.ui.treevirtual {
         getFilter(): Function;
         setFilter(value: Function): void;
         resetFilter(): void;
+        destruct(): void;
 
     }
 }
@@ -1119,6 +1128,7 @@ declare module qx.ui.treevirtual {
         constructor(table?: qx.ui.table.Table);
         getTable(): qx.ui.table.Table;
         protected _handleExtendedClick(tree: qx.ui.treevirtual.TreeVirtual, evt: IMap, node: IMap, left: number): boolean;
+        destruct(): void;
 
     }
 }
@@ -1146,6 +1156,7 @@ declare module qx.ui.treevirtual {
         isAlwaysShowOpenCloseSymbol(): boolean;
         setAlwaysShowOpenCloseSymbol(value: boolean): void;
         resetAlwaysShowOpenCloseSymbol(): void;
+        destruct(): void;
 
     }
 }
@@ -1203,6 +1214,7 @@ declare module qx.ui.popup {
         isAutoHide(): boolean;
         setAutoHide(value: boolean): void;
         resetAutoHide(): void;
+        destruct(): void;
 
     }
 }
@@ -1215,6 +1227,7 @@ declare module qx.ui.popup {
         getContainsFunction(): Function;
         setContainsFunction(value: Function): void;
         resetContainsFunction(): void;
+        destruct(): void;
 
     }
 }
@@ -1285,6 +1298,7 @@ declare module qx.ui.form {
     class MModelSelection {
         getModelSelection(): qx.data.Array;
         setModelSelection(modelSelection: qx.data.Array): void;
+        destruct(): void;
 
     }
 }
@@ -1311,6 +1325,7 @@ declare module qx.ui.form {
         getTimerDecrease(): number;
         setTimerDecrease(value: number): void;
         resetTimerDecrease(): void;
+        destruct(): void;
 
     }
 }
@@ -1365,6 +1380,7 @@ declare module qx.ui.form.renderer {
         getRequiredSuffix(): string;
         setRequiredSuffix(value: string): void;
         resetRequiredSuffix(): void;
+        destruct(): void;
 
     }
 }
@@ -1387,6 +1403,7 @@ declare module qx.ui.form.renderer {
         getLayout(): qx.ui.layout.Grid;
         protected _createLabel(name: string, item: qx.ui.core.Widget): qx.ui.basic.Label;
         protected _createHeader(title: string): qx.ui.basic.Label;
+        destruct(): void;
 
     }
 }
@@ -1395,6 +1412,7 @@ declare module qx.ui.form.renderer {
         getLayout(): qx.ui.layout.Grid;
         protected _createLabel(name: string, item: qx.ui.core.Widget): qx.ui.basic.Label;
         protected _createHeader(title: string): qx.ui.basic.Label;
+        destruct(): void;
 
     }
 }
@@ -1453,6 +1471,7 @@ declare module qx.ui.form {
         getRequiredInvalidMessage(): string;
         setRequiredInvalidMessage(value: string): void;
         resetRequiredInvalidMessage(): void;
+        destruct(): void;
 
     }
 }
@@ -1496,6 +1515,7 @@ declare module qx.ui.form.core {
         isAllowGrowDropDown(): boolean;
         setAllowGrowDropDown(value: boolean): void;
         resetAllowGrowDropDown(): void;
+        destruct(): void;
 
     }
 }
@@ -1569,6 +1589,7 @@ declare module qx.ui.form.core {
         isAllowGrowDropDown(): boolean;
         setAllowGrowDropDown(value: boolean): void;
         resetAllowGrowDropDown(): void;
+        destruct(): void;
 
     }
 }
@@ -1590,6 +1611,7 @@ declare module qx.ui.form {
         getChecked(): qx.ui.form.CheckBox[];
         setChecked(the: qx.ui.form.CheckBox[]): void;
         resetChecked(): void;
+        destruct(): void;
 
     }
 }
@@ -1608,6 +1630,7 @@ declare module qx.ui.form {
         resetItem(field: qx.ui.form.IField): null | Error;
         redefine(): void;
         redefineItem(field: qx.ui.form.IField): void;
+        destruct(): void;
 
     }
 }
@@ -1704,6 +1727,7 @@ declare module qx.ui.form {
         getNumberFormat(): qx.util.format.NumberFormat;
         setNumberFormat(value: qx.util.format.NumberFormat): void;
         resetNumberFormat(): void;
+        destruct(): void;
 
     }
 }
@@ -1821,6 +1845,7 @@ declare module qx.ui.form {
         resetRequired(): void;
         resetInvalidMessage(): void;
         resetRequiredInvalidMessage(): void;
+        destruct(): void;
 
     }
 }
@@ -1840,6 +1865,7 @@ declare module qx.ui.form {
         getTimerDecrease(): number;
         setTimerDecrease(value: number): void;
         resetTimerDecrease(): void;
+        destruct(): void;
 
     }
 }
@@ -1858,6 +1884,7 @@ declare module qx.ui.form {
 declare module qx.ui.form {
     class TextField extends qx.ui.form.AbstractField {
         protected _onKeyPress(evt: qx.event.type.KeySequence): void;
+        destruct(): void;
 
     }
 }
@@ -1950,6 +1977,7 @@ declare module qx.ui.form {
         resetRequired(): void;
         resetInvalidMessage(): void;
         resetRequiredInvalidMessage(): void;
+        destruct(): void;
 
     }
 }
@@ -1978,6 +2006,7 @@ declare module qx.ui.form {
         isRich(): boolean;
         setRich(value: boolean): void;
         resetRich(): void;
+        destruct(): void;
 
     }
 }
@@ -2020,6 +2049,7 @@ declare module qx.ui.form {
         getHighlightMode(): any;
         setHighlightMode(value: any): void;
         resetHighlightMode(): void;
+        destruct(): void;
 
     }
 }
@@ -2146,6 +2176,7 @@ declare module qx.ui.form {
         getPlaceholder(): string;
         setPlaceholder(value: string): void;
         resetPlaceholder(): void;
+        destruct(): void;
 
     }
 }
@@ -2187,6 +2218,7 @@ declare module qx.ui.form {
         getDefaultFormat(): Function;
         setDefaultFormat(value: Function): void;
         resetDefaultFormat(): void;
+        destruct(): void;
 
     }
 }
@@ -2199,6 +2231,7 @@ declare module qx.ui.form {
         constructor(label?: string, icon?: string, model?: string);
         protected _onPointerOver(): void;
         protected _onPointerOut(): void;
+        destruct(): void;
 
     }
 }
@@ -2292,6 +2325,7 @@ declare module qx.ui.form {
         isReadOnly(): boolean;
         setReadOnly(value: boolean): void;
         resetReadOnly(): void;
+        destruct(): void;
 
     }
 }
@@ -2320,6 +2354,7 @@ declare module qx.ui.form {
         isAutoSize(): boolean;
         setAutoSize(value: boolean): void;
         resetAutoSize(): void;
+        destruct(): void;
 
     }
 }
@@ -2459,6 +2494,7 @@ declare module qx.ui.form {
         getFilter(): RegExp;
         setFilter(value: RegExp): void;
         resetFilter(): void;
+        destruct(): void;
 
     }
 }
@@ -2481,6 +2517,7 @@ declare module qx.ui.form {
         getButtonOptions(): qx.data.Array;
         protected _createValidationManager(): qx.ui.form.validation.Manager;
         protected _createResetter(): qx.ui.form.Resetter;
+        destruct(): void;
 
     }
 }
@@ -2500,6 +2537,7 @@ declare module qx.ui.form.validation {
         validate(item: qx.ui.core.Widget, value: any, manager: qx.ui.form.validation.Manager, context?: any): void;
         validateForm(items: qx.ui.core.Widget[], manager: qx.ui.form.validation.Manager, context?: any): void;
         setValid(valid: boolean, message?: string): void;
+        destruct(): void;
 
     }
 }
@@ -2531,6 +2569,7 @@ declare module qx.ui.form.validation {
         getContext(): any;
         setContext(value: any): void;
         resetContext(): void;
+        destruct(): void;
 
     }
 }
@@ -2605,6 +2644,7 @@ declare module qx.ui.tooltip {
         isShowToolTips(): boolean;
         setShowToolTips(value: boolean): void;
         resetShowToolTips(): void;
+        destruct(): void;
 
     }
 }
@@ -2656,6 +2696,7 @@ declare module qx.ui.core {
         isUseResizeFrame(): boolean;
         setUseResizeFrame(value: boolean): void;
         resetUseResizeFrame(): void;
+        destruct(): void;
 
     }
 }
@@ -2875,6 +2916,7 @@ declare module qx.ui.core {
         getAppearance(): string;
         setAppearance(value: string): void;
         resetAppearance(): void;
+        destruct(): void;
 
     }
 }
@@ -2957,6 +2999,7 @@ declare module qx.ui.core.scroll {
         getSingleStep(): number;
         setSingleStep(value: number): void;
         resetSingleStep(): void;
+        destruct(): void;
 
     }
 }
@@ -3185,6 +3228,7 @@ declare module qx.ui.core {
         getCommand(): qx.ui.command.Command;
         setCommand(value: qx.ui.command.Command): void;
         resetCommand(): void;
+        destruct(): void;
 
     }
 }
@@ -3207,6 +3251,7 @@ declare module qx.ui.core {
         isUseTabNavigation(): boolean;
         setUseTabNavigation(value: boolean): void;
         resetUseTabNavigation(): void;
+        destruct(): void;
 
     }
 }
@@ -3232,6 +3277,7 @@ declare module qx.ui.core {
         getDragScrollSlowDownFactor(): number;
         setDragScrollSlowDownFactor(value: number): void;
         resetDragScrollSlowDownFactor(): void;
+        destruct(): void;
 
     }
 }
@@ -3248,6 +3294,7 @@ declare module qx.ui.core {
         isAllowEmptySelection(): boolean;
         setAllowEmptySelection(value: boolean): void;
         resetAllowEmptySelection(): void;
+        destruct(): void;
 
     }
 }
@@ -3283,6 +3330,7 @@ declare module qx.ui.core {
         getBlockerOpacity(): number;
         setBlockerOpacity(value: number): void;
         resetBlockerOpacity(): void;
+        destruct(): void;
 
     }
 }
@@ -3301,6 +3349,7 @@ declare module qx.ui.core {
         isUseMoveFrame(): boolean;
         setUseMoveFrame(value: boolean): void;
         resetUseMoveFrame(): void;
+        destruct(): void;
 
     }
 }
@@ -3310,6 +3359,7 @@ declare module qx.ui.core {
         registerEvent(target: any, type: string, capture: boolean): void;
         unregisterEvent(target: any, type: string, capture: boolean): void;
         protected _dispatchEvent(domEvent: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -3348,6 +3398,7 @@ declare module qx.ui.core {
         isQuickSelection(): boolean;
         setQuickSelection(value: boolean): void;
         resetQuickSelection(): void;
+        destruct(): void;
 
     }
 }
@@ -3395,6 +3446,7 @@ declare module qx.ui.core {
         resetOffsetBottom(): void;
         setOffset(value: any): void;
         resetOffset(): void;
+        destruct(): void;
 
     }
 }
@@ -3480,6 +3532,7 @@ declare module qx.ui.core.selection {
         constructor(widget?: qx.ui.core.Widget);
         protected _isItemSelectable(item: qx.ui.core.Widget): boolean;
         protected _getWidget(): qx.ui.core.Widget;
+        destruct(): void;
 
     }
 }
@@ -3563,6 +3616,7 @@ declare module qx.ui.core.selection {
         isReadOnly(): boolean;
         setReadOnly(value: boolean): void;
         resetReadOnly(): void;
+        destruct(): void;
 
     }
 }
@@ -3590,6 +3644,7 @@ declare module qx.ui.core {
         isSelectionEmpty(): boolean;
         getSelectables(all: boolean): qx.ui.core.Widget[];
         protected _onChangeSelected(e: qx.event.type.Data): void;
+        destruct(): void;
 
     }
 }
@@ -3628,7 +3683,7 @@ declare module qx.ui.core {
         setMinWidth(value: number): void;
         resetMinWidth(): void;
         getWidth(): number;
-        setWidth(value: number): void;
+        setWidth(...args: number[]): void;
         resetWidth(): void;
         getMaxWidth(): number;
         setMaxWidth(value: number): void;
@@ -3682,6 +3737,7 @@ declare module qx.ui.core {
         getAlignY(): any;
         setAlignY(value: any): void;
         resetAlignY(): void;
+        destruct(): void;
 
     }
 }
@@ -3725,6 +3781,7 @@ declare module qx.ui.core {
         isKeepBlockerActive(): boolean;
         setKeepBlockerActive(value: boolean): void;
         resetKeepBlockerActive(): void;
+        destruct(): void;
 
     }
 }
@@ -3799,6 +3856,7 @@ declare module qx.ui.embed {
         getCanvasHeight(): number;
         setCanvasHeight(value: number): void;
         resetCanvasHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -3820,6 +3878,7 @@ declare module qx.ui.embed {
         getScrollbar(): any;
         setScrollbar(value: any): void;
         resetScrollbar(): void;
+        destruct(): void;
 
     }
 }
@@ -3853,6 +3912,7 @@ declare module qx.ui.embed {
         resetScrollbarY(): void;
         setScrollbar(value: any): void;
         resetScrollbar(): void;
+        destruct(): void;
 
     }
 }
@@ -3924,6 +3984,7 @@ declare module qx.ui.layout {
         getSpacingY(): number;
         setSpacingY(value: number): void;
         resetSpacingY(): void;
+        destruct(): void;
 
     }
 }
@@ -4015,6 +4076,7 @@ declare module qx.ui.layout {
         isAllowGrowSpannedCellWidth(): boolean;
         setAllowGrowSpannedCellWidth(value: boolean): void;
         resetAllowGrowSpannedCellWidth(): void;
+        destruct(): void;
 
     }
 }
@@ -4038,6 +4100,7 @@ declare module qx.ui.layout {
         isReversed(): boolean;
         setReversed(value: boolean): void;
         resetReversed(): void;
+        destruct(): void;
 
     }
 }
@@ -4070,6 +4133,7 @@ declare module qx.ui.layout {
         protected _getWidget(): qx.ui.core.Widget;
         protected _applyLayoutChange(): void;
         protected _getLayoutChildren(): qx.data.Array;
+        destruct(): void;
 
     }
 }
@@ -4093,6 +4157,7 @@ declare module qx.ui.layout {
         isReversed(): boolean;
         setReversed(value: boolean): void;
         resetReversed(): void;
+        destruct(): void;
 
     }
 }
@@ -4176,6 +4241,7 @@ declare module qx.ui.toolbar {
         isOverflowHandling(): boolean;
         setOverflowHandling(value: boolean): void;
         resetOverflowHandling(): void;
+        destruct(): void;
 
     }
 }
@@ -4276,6 +4342,7 @@ declare module qx.ui.basic {
         getTextAlign(): any;
         setTextAlign(value: any): void;
         resetTextAlign(): void;
+        destruct(): void;
 
     }
 }
@@ -4300,6 +4367,7 @@ declare module qx.ui.basic {
         isAllowScaleUp(): boolean;
         setAllowScaleUp(value: boolean): void;
         resetAllowScaleUp(): void;
+        destruct(): void;
 
     }
 }
@@ -4399,6 +4467,7 @@ declare module qx.ui.tabview {
         getBarPosition(): any;
         setBarPosition(value: any): void;
         resetBarPosition(): void;
+        destruct(): void;
 
     }
 }
@@ -4596,7 +4665,7 @@ declare module qx.ui.progressive.renderer.table {
     class Widths extends qx.core.Object {
         constructor(numColumns?: number);
         getData(): qx.data.Array;
-        setWidth(column: number, width: number | string): void;
+        setWidth(...args: number[]): void;
         setMinWidth(column: number, width: number): void;
         setMaxWidth(column: number, width: number): void;
 
@@ -4608,6 +4677,7 @@ declare module qx.ui.progressive.renderer.table.cell {
         addNumericCondition(condition: qx.ui.progressive.renderer.table.cell.String, value1: number, align: qx.ui.progressive.renderer.table.cell.String, color: qx.ui.progressive.renderer.table.cell.String, style: qx.ui.progressive.renderer.table.cell.String, weight: qx.ui.progressive.renderer.table.cell.String, target: qx.ui.progressive.renderer.table.cell.String): void;
         addBetweenCondition(condition: qx.ui.progressive.renderer.table.cell.String, value1: number, value2: number, align: qx.ui.progressive.renderer.table.cell.String, color: qx.ui.progressive.renderer.table.cell.String, style: qx.ui.progressive.renderer.table.cell.String, weight: qx.ui.progressive.renderer.table.cell.String, target: qx.ui.progressive.renderer.table.cell.String): void;
         addRegex(regex: qx.ui.progressive.renderer.table.cell.String, align: qx.ui.progressive.renderer.table.cell.String, color: qx.ui.progressive.renderer.table.cell.String, style: qx.ui.progressive.renderer.table.cell.String, weight: qx.ui.progressive.renderer.table.cell.String, target: qx.ui.progressive.renderer.table.cell.String): void;
+        destruct(): void;
 
     }
 }
@@ -4619,6 +4689,7 @@ declare module qx.ui.progressive.renderer.table.cell {
         isAllowToggle(): boolean;
         setAllowToggle(value: boolean): void;
         resetAllowToggle(): void;
+        destruct(): void;
 
     }
 }
@@ -4672,6 +4743,7 @@ declare module qx.ui.progressive.renderer.table {
         getDefaultRowHeight(): any;
         setDefaultRowHeight(value: any): void;
         resetDefaultRowHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -4705,6 +4777,7 @@ declare module qx.ui.progressive {
         getRendererData(): any;
         setRendererData(value: any): void;
         resetRendererData(): void;
+        destruct(): void;
 
     }
 }
@@ -4719,6 +4792,7 @@ declare module qx.ui.progressive.model {
     class Default extends qx.ui.progressive.model.Abstract {
         addElements(elems: qx.data.Array): void;
         addElement(elem: any): void;
+        destruct(): void;
 
     }
 }
@@ -4726,6 +4800,7 @@ declare module qx.ui.progressive.headfoot {
     class TableHeading extends qx.ui.progressive.headfoot.Abstract {
         constructor(columnWidths?: qx.ui.progressive.renderer.table.Widths, labelArr?: qx.data.Array);
         protected _resizeColumns(e: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -4737,12 +4812,14 @@ declare module qx.ui.progressive.headfoot {
 declare module qx.ui.progressive.headfoot {
     class Progress extends qx.ui.progressive.headfoot.Abstract {
         constructor(columnWidths?: qx.ui.progressive.renderer.table.Widths, labelArr?: qx.data.Array);
+        destruct(): void;
 
     }
 }
 declare module qx.ui.progressive.headfoot {
     class Abstract extends qx.ui.container.Composite {
         join(progressive: qx.ui.progressive.Progressive): void;
+        destruct(): void;
 
     }
 }
@@ -4751,6 +4828,7 @@ declare module qx.ui.progressive.structure {
         constructor(pane?: qx.ui.core.Widget | null);
         applyStructure(progressive: qx.ui.progressive.Progressive): void;
         getPane(): qx.ui.core.Widget;
+        destruct(): void;
 
     }
 }
@@ -4759,6 +4837,7 @@ declare module qx.ui.progressive.structure {
         constructor(header?: qx.ui.progressive.headfoot.Abstract | null, footer?: qx.ui.progressive.headfoot.Abstract | null, pane?: qx.ui.core.Widget | null);
         getHeader(): qx.ui.progressive.headfoot.Abstract;
         getFooter(): qx.ui.progressive.headfoot.Abstract;
+        destruct(): void;
 
     }
 }
@@ -4783,6 +4862,7 @@ declare module qx.ui.progressive {
         getInterElementTimeout(): number;
         setInterElementTimeout(value: number): void;
         resetInterElementTimeout(): void;
+        destruct(): void;
 
     }
 }
@@ -4805,6 +4885,7 @@ declare module qx.ui.table.pane {
         getMaxColumnCount(): number;
         setMaxColumnCount(value: number): void;
         resetMaxColumnCount(): void;
+        destruct(): void;
 
     }
 }
@@ -4825,6 +4906,7 @@ declare module qx.ui.table.pane {
         isShowingColumnMoveFeedback(): boolean;
         protected _updateContent(completeUpdate: boolean): void;
         protected _cleanUpCells(): void;
+        destruct(): void;
 
     }
 }
@@ -4877,6 +4959,7 @@ declare module qx.ui.table.pane {
         getMaxCacheLines(): number;
         setMaxCacheLines(value: number): void;
         resetMaxCacheLines(): void;
+        destruct(): void;
 
     }
 }
@@ -4891,6 +4974,7 @@ declare module qx.ui.table.pane {
         getColumn(): number;
         setColumn(value: number): void;
         resetColumn(): void;
+        destruct(): void;
 
     }
 }
@@ -5021,6 +5105,7 @@ declare module qx.ui.table.pane {
         getMinCellEditHeight(): number;
         setMinCellEditHeight(value: number): void;
         resetMinCellEditHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -5059,6 +5144,7 @@ declare module qx.ui.table.columnmenu {
         setMenu(value: any): void;
         resetMenu(): void;
         getBlocker(): qx.ui.core.Blocker;
+        destruct(): void;
 
     }
 }
@@ -5087,6 +5173,7 @@ declare module qx.ui.table.columnmodel {
         getBehavior(): qx.ui.table.columnmodel.resizebehavior.Abstract;
         setBehavior(value: qx.ui.table.columnmodel.resizebehavior.Abstract): void;
         resetBehavior(): void;
+        destruct(): void;
 
     }
 }
@@ -5104,7 +5191,7 @@ declare module qx.ui.table.columnmodel.resizebehavior {
 }
 declare module qx.ui.table.columnmodel.resizebehavior {
     class Default extends qx.ui.table.columnmodel.resizebehavior.Abstract {
-        setWidth(col: number, width: number | string, flex?: number): void;
+        setWidth(...args: number[]): void;
         setMinWidth(col: number, width: number): void;
         setMaxWidth(col: number, width: number): void;
         getLayoutChildren(): qx.ui.core.ColumnData[];
@@ -5122,6 +5209,7 @@ declare module qx.ui.table.columnmodel.resizebehavior {
         getTableColumnModel(): qx.ui.table.columnmodel.Resize;
         setTableColumnModel(value: qx.ui.table.columnmodel.Resize): void;
         resetTableColumnModel(): void;
+        destruct(): void;
 
     }
 }
@@ -5149,6 +5237,7 @@ declare module qx.ui.table.columnmodel {
         setColumnVisible(col: number, visible: boolean): void;
         moveColumn(fromOverXPos: number, toOverXPos: number): void;
         setColumnsOrder(newPositions: number[]): void;
+        destruct(): void;
 
     }
 }
@@ -5165,6 +5254,7 @@ declare module qx.ui.table.rowrenderer {
         isHighlightFocusRow(): boolean;
         setHighlightFocusRow(value: boolean): void;
         resetHighlightFocusRow(): void;
+        destruct(): void;
 
     }
 }
@@ -5172,6 +5262,7 @@ declare module qx.ui.table {
     class MTableContextMenu {
         setContextMenuHandler(col: number, handler: Function, context?: {}): void;
         getContextMenuHandler(col: number): Function;
+        destruct(): void;
 
     }
 }
@@ -5189,6 +5280,7 @@ declare module qx.ui.table.celleditor {
         getCellEditorFactoryFunction(): Function;
         setCellEditorFactoryFunction(value: Function): void;
         resetCellEditorFactoryFunction(): void;
+        destruct(): void;
 
     }
 }
@@ -5435,6 +5527,7 @@ declare module qx.ui.table {
         getNewTablePaneModel(): Function;
         setNewTablePaneModel(value: Function): void;
         resetNewTablePaneModel(): void;
+        destruct(): void;
 
     }
 }
@@ -5450,6 +5543,7 @@ declare module qx.ui.table.cellrenderer {
         getRepeat(): any;
         setRepeat(value: any): void;
         resetRepeat(): void;
+        destruct(): void;
 
     }
 }
@@ -5459,6 +5553,7 @@ declare module qx.ui.table.cellrenderer {
         addNumericCondition(condition: qx.ui.table.cellrenderer.String, value1: number, align: string | null, color: string | null, style: string | null, weight: string | null, target: string | null): void;
         addBetweenCondition(condition: qx.ui.table.cellrenderer.String, value1: number, value2: number, align: string | null, color: string | null, style: string | null, weight: string | null, target: string | null): void;
         addRegex(regex: qx.ui.table.cellrenderer.String, align: string | null, color: string | null, style: string | null, weight: string | null, target: string | null): void;
+        destruct(): void;
 
     }
 }
@@ -5480,6 +5575,7 @@ declare module qx.ui.table.cellrenderer {
         getIconFalse(): string;
         setIconFalse(value: string): void;
         resetIconFalse(): void;
+        destruct(): void;
 
     }
 }
@@ -5539,6 +5635,7 @@ declare module qx.ui.table.cellrenderer {
         getDefaultCellStyle(): string;
         setDefaultCellStyle(value: string): void;
         resetDefaultCellStyle(): void;
+        destruct(): void;
 
     }
 }
@@ -5556,6 +5653,7 @@ declare module qx.ui.table.cellrenderer {
 declare module qx.ui.table.cellrenderer {
     class Image extends qx.ui.table.cellrenderer.AbstractImage {
         constructor(height?: number, width?: number);
+        destruct(): void;
 
     }
 }
@@ -5588,6 +5686,7 @@ declare module qx.ui.table.model {
         isCaseSensitiveSorting(): boolean;
         setCaseSensitiveSorting(value: boolean): void;
         resetCaseSensitiveSorting(): void;
+        destruct(): void;
 
     }
 }
@@ -5602,6 +5701,7 @@ declare module qx.ui.table.model {
         applyFilters(): void;
         hideRows(rowNum: number, numOfRows: number, dispatchEvent?: boolean): void;
         resetHiddenRows(): void;
+        destruct(): void;
 
     }
 }
@@ -5639,6 +5739,7 @@ declare module qx.ui.table.model {
         isBlockConcurrentLoadRowCount(): boolean;
         setBlockConcurrentLoadRowCount(value: boolean): void;
         resetBlockConcurrentLoadRowCount(): void;
+        destruct(): void;
 
     }
 }
@@ -5667,6 +5768,7 @@ declare module qx.ui.table.model {
         setColumnNamesById(columnNameMap: IMap): void;
         setColumns(columnNameArr: string[], columnIdArr?: string[]): void;
         protected _checkEditing(): void;
+        destruct(): void;
 
     }
 }
@@ -5705,6 +5807,7 @@ declare module qx.ui.table.selection {
         getSelectionMode(): any;
         setSelectionMode(value: any): void;
         resetSelectionMode(): void;
+        destruct(): void;
 
     }
 }
@@ -5850,6 +5953,7 @@ declare module qx.ui.mobile.page {
         getContentCssClass(): string;
         setContentCssClass(value: string): void;
         resetContentCssClass(): void;
+        destruct(): void;
 
     }
 }
@@ -5897,6 +6001,7 @@ declare module qx.ui.mobile.page {
         isHideMasterOnDetailStart(): boolean;
         setHideMasterOnDetailStart(value: boolean): void;
         resetHideMasterOnDetailStart(): void;
+        destruct(): void;
 
     }
 }
@@ -5966,6 +6071,7 @@ declare module qx.ui.mobile.form.renderer {
         showItem(item: qx.ui.form.IForm): void;
         hideItem(item: qx.ui.form.IForm): void;
         protected _getParentRow(item: qx.ui.form.IForm): qx.ui.mobile.core.Widget;
+        destruct(): void;
 
     }
 }
@@ -5994,6 +6100,7 @@ declare module qx.ui.mobile.form {
         getGroup(): qx.ui.mobile.form.RadioGroup;
         setGroup(value: qx.ui.mobile.form.RadioGroup): void;
         resetGroup(): void;
+        destruct(): void;
 
     }
 }
@@ -6047,6 +6154,7 @@ declare module qx.ui.mobile.form {
         replaceState(oldState: string, newState: string): void;
         protected _getType(): void;
         protected _onSelected(evt: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -6130,6 +6238,7 @@ declare module qx.ui.mobile.form {
         getDisplayValue(): any;
         setDisplayValue(value: any): void;
         resetDisplayValue(): void;
+        destruct(): void;
 
     }
 }
@@ -6213,6 +6322,7 @@ declare module qx.ui.mobile.form {
         resetReadOnly(): void;
         constructor(value?: any);
         protected _onKeyPress(evt: qx.event.type.KeySequence): void;
+        destruct(): void;
 
     }
 }
@@ -6237,6 +6347,7 @@ declare module qx.ui.mobile.form {
         protected _onTap(): void;
         protected _setValue(value: boolean): void;
         protected _getValue(): boolean;
+        destruct(): void;
 
     }
 }
@@ -6329,6 +6440,7 @@ declare module qx.ui.mobile.form {
         getSelection(): any;
         setSelection(value: any): void;
         resetSelection(): void;
+        destruct(): void;
 
     }
 }
@@ -6388,6 +6500,7 @@ declare module qx.ui.mobile.form {
         protected _onTap(evt: qx.event.type.Tap): void;
         protected _onSwipe(evt: qx.event.type.Swipe): void;
         protected _checkLastPointerTime(): boolean;
+        destruct(): void;
 
     }
 }
@@ -6409,6 +6522,7 @@ declare module qx.ui.mobile.form {
         isLiveUpdate(): boolean;
         setLiveUpdate(value: boolean): void;
         resetLiveUpdate(): void;
+        destruct(): void;
 
     }
 }
@@ -6487,6 +6601,7 @@ declare module qx.ui.mobile.form {
         replaceState(oldState: string, newState: string): void;
         constructor(value?: any);
         protected _fixChildElementsHeight(evt: qx.event.type.Data): void;
+        destruct(): void;
 
     }
 }
@@ -6521,6 +6636,7 @@ declare module qx.ui.mobile.form {
         isWrap(): boolean;
         setWrap(value: boolean): void;
         resetWrap(): void;
+        destruct(): void;
 
     }
 }
@@ -6647,6 +6763,7 @@ declare module qx.ui.mobile.core {
         getTranslateZ(): number;
         setTranslateZ(value: number): void;
         resetTranslateZ(): void;
+        destruct(): void;
 
     }
 }
@@ -6680,6 +6797,7 @@ declare module qx.ui.mobile.core {
         registerEvent(target: any, type: string, capture: boolean): void;
         unregisterEvent(target: any, type: string, capture: boolean): void;
         protected _dispatchEvent(domEvent: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -6703,6 +6821,7 @@ declare module qx.ui.mobile.core {
         isShown(): boolean;
         protected _updateSize(): void;
         protected _onScroll(evt: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -6713,6 +6832,7 @@ declare module qx.ui.mobile.core {
         unregisterEvent(target: any, type: string, capture: boolean): void;
         constructor(manager?: qx.event.Manager);
         static refresh(): void;
+        destruct(): void;
 
     }
 }
@@ -6730,13 +6850,14 @@ declare module qx.ui.mobile.core {
         isShowScrollbarY(): boolean;
         setShowScrollbarY(value: boolean): void;
         resetShowScrollbarY(): void;
+        destruct(): void;
 
     }
 }
 declare module qx.ui.mobile.embed {
     class Canvas extends qx.ui.mobile.core.Widget {
         getCanvas(): HTMLElement;
-        setWidth(width: number): void;
+        setWidth(...args: number[]): void;
         getWidth(): number;
         setHeight(height: number): void;
         getHeight(): number;
@@ -6758,6 +6879,7 @@ declare module qx.ui.mobile.layout {
     class CardAnimation extends qx.core.Object {
         getAnimation(animationName: string, direction: string, reverse: boolean): IMap;
         getMap(): IMap;
+        destruct(): void;
 
     }
 }
@@ -6780,6 +6902,7 @@ declare module qx.ui.mobile.layout {
         getAnimationDuration(): number;
         setAnimationDuration(value: number): void;
         resetAnimationDuration(): void;
+        destruct(): void;
 
     }
 }
@@ -6801,6 +6924,7 @@ declare module qx.ui.mobile.layout {
         protected _addCachedProperty(property: string, value: any): void;
         protected _getChildLayoutPropertyValue(widget: qx.ui.mobile.core.Widget, property: string): any;
         protected _addPropertyToChildLayoutCache(widget: qx.ui.mobile.core.Widget, property: string, value: any): void;
+        destruct(): void;
 
     }
 }
@@ -6853,6 +6977,7 @@ declare module qx.ui.mobile.basic {
         isWrap(): boolean;
         setWrap(value: boolean): void;
         resetWrap(): void;
+        destruct(): void;
 
     }
 }
@@ -6867,6 +6992,7 @@ declare module qx.ui.mobile.basic {
         getSource(): string;
         setSource(value: string): void;
         resetSource(): void;
+        destruct(): void;
 
     }
 }
@@ -6893,6 +7019,7 @@ declare module qx.ui.mobile.basic {
         getIconPosition(): any;
         setIconPosition(value: any): void;
         resetIconPosition(): void;
+        destruct(): void;
 
     }
 }
@@ -6906,6 +7033,7 @@ declare module qx.ui.mobile.tabbar {
         getSelection(): qx.ui.mobile.tabbar.TabButton;
         setSelection(value: qx.ui.mobile.tabbar.TabButton): void;
         resetSelection(): void;
+        destruct(): void;
 
     }
 }
@@ -6947,6 +7075,7 @@ declare module qx.ui.mobile.dialog {
         getSpinnerClass(): string;
         setSpinnerClass(value: string): void;
         resetSpinnerClass(): void;
+        destruct(): void;
 
     }
 }
@@ -6984,6 +7113,7 @@ declare module qx.ui.mobile.dialog {
         getVisibleListItems(): number;
         setVisibleListItems(value: number): void;
         resetVisibleListItems(): void;
+        destruct(): void;
 
     }
 }
@@ -7020,6 +7150,7 @@ declare module qx.ui.mobile.dialog {
         isHideOnBlockerTap(): boolean;
         setHideOnBlockerTap(value: boolean): void;
         resetHideOnBlockerTap(): void;
+        destruct(): void;
 
     }
 }
@@ -7052,6 +7183,7 @@ declare module qx.ui.mobile.container {
         protected _getScrollHeight(): number;
         protected _getScrollWidth(): number;
         protected _scrollTo(x: number, y: number, time: number): void;
+        destruct(): void;
 
     }
 }
@@ -7065,6 +7197,7 @@ declare module qx.ui.mobile.container {
         protected _onUpdateLayout(evt: qx.event.type.Data): void;
         protected _update(widget: qx.ui.mobile.core.Widget): void;
         protected _createNavigationBar(): qx.ui.mobile.navigationbar.NavigationBar;
+        destruct(): void;
 
     }
 }
@@ -7081,6 +7214,7 @@ declare module qx.ui.mobile.container {
         disable(): void;
         enable(): void;
         protected _refresh(): void;
+        destruct(): void;
 
     }
 }
@@ -7122,6 +7256,7 @@ declare module qx.ui.mobile.container {
         getPositionZ(): any;
         setPositionZ(value: any): void;
         resetPositionZ(): void;
+        destruct(): void;
 
     }
 }
@@ -7151,6 +7286,7 @@ declare module qx.ui.mobile.container {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -7199,6 +7335,7 @@ declare module qx.ui.mobile.container {
         isCombined(): boolean;
         setCombined(value: boolean): void;
         resetCombined(): void;
+        destruct(): void;
 
     }
 }
@@ -7256,6 +7393,7 @@ declare module qx.ui.mobile.container {
         getTransitionDuration(): number;
         setTransitionDuration(value: number): void;
         resetTransitionDuration(): void;
+        destruct(): void;
 
     }
 }
@@ -7291,6 +7429,7 @@ declare module qx.ui.mobile.list.renderer.group {
         protected _createRightContainer(): qx.ui.mobile.container.Composite;
         protected _createImage(): qx.ui.mobile.basic.Image;
         protected _createTitle(): qx.ui.mobile.basic.Label;
+        destruct(): void;
 
     }
 }
@@ -7333,6 +7472,7 @@ declare module qx.ui.mobile.list.renderer {
         protected _createImage(): qx.ui.mobile.basic.Image;
         protected _createTitle(): qx.ui.mobile.basic.Label;
         protected _createSubtitle(): qx.ui.mobile.basic.Label;
+        destruct(): void;
 
     }
 }
@@ -7352,6 +7492,7 @@ declare module qx.ui.mobile.list.provider {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -7389,6 +7530,7 @@ declare module qx.ui.mobile.list {
         getItemHeight(): number;
         setItemHeight(value: number): void;
         resetItemHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -7414,6 +7556,7 @@ declare module qx.ui.mobile.control {
         getHeight(): number;
         setHeight(value: number): void;
         resetHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -7455,6 +7598,7 @@ declare module qx.ui.window {
         getActiveWindow(): qx.ui.window.Window;
         setActiveWindow(value: qx.ui.window.Window): void;
         resetActiveWindow(): void;
+        destruct(): void;
 
     }
 }
@@ -7467,6 +7611,7 @@ declare module qx.ui.window {
         sendToBack(win: qx.ui.window.Window): void;
         getDesktop(): qx.ui.window.IDesktop;
         syncWidget(): void;
+        destruct(): void;
 
     }
 }
@@ -7626,6 +7771,7 @@ declare module qx.ui.window {
         isAutoDestroy(): boolean;
         setAutoDestroy(value: boolean): void;
         resetAutoDestroy(): void;
+        destruct(): void;
 
     }
 }
@@ -7722,6 +7868,7 @@ declare module qx.ui.list.core {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -7789,6 +7936,7 @@ declare module qx.ui.list.provider {
         protected _onItemCreated(event: qx.event.type.Data): void;
         protected _onGroupItemCreated(event: qx.event.type.Data): void;
         protected _onChangeDelegate(event: qx.event.type.Data): void;
+        destruct(): void;
 
     }
 }
@@ -7895,6 +8043,7 @@ declare module qx.ui.list {
         isVariableItemHeight(): boolean;
         setVariableItemHeight(value: boolean): void;
         resetVariableItemHeight(): void;
+        destruct(): void;
 
     }
 }
@@ -7912,6 +8061,7 @@ declare module qx.ui.virtual.behavior {
         getInterval(): number;
         setInterval(value: number): void;
         resetInterval(): void;
+        destruct(): void;
 
     }
 }
@@ -7982,6 +8132,7 @@ declare module qx.ui.virtual.core {
         protected _fullUpdate(): void;
         protected _deferredUpdateScrollPosition(): void;
         protected _updateScrollPosition(): void;
+        destruct(): void;
 
     }
 }
@@ -7999,6 +8150,7 @@ declare module qx.ui.virtual.core {
         getItemPosition(index: number): number | null;
         getTotalSize(): number;
         getItemSizes(startIndex: number, minSizeSum: number): number[];
+        destruct(): void;
 
     }
 }
@@ -8006,6 +8158,7 @@ declare module qx.ui.virtual.core {
     class Scroller extends qx.ui.core.scroll.AbstractScrollArea {
         constructor(rowCount?: number, columnCount?: number, cellHeight?: number, cellWidth?: number);
         getPane(): qx.ui.virtual.core.Pane;
+        destruct(): void;
 
     }
 }
@@ -8064,6 +8217,7 @@ declare module qx.ui.virtual.cell {
         resetPaddingLeft(): void;
         setPadding(...args: number[]): void;
         resetPadding(): void;
+        destruct(): void;
 
     }
 }
@@ -8103,6 +8257,7 @@ declare module qx.ui.virtual.cell {
         updateData(widget: qx.ui.core.LayoutItem, data: any): void;
         protected _createWidget(): qx.ui.core.LayoutItem;
         protected _cleanupPool(): void;
+        destruct(): void;
 
     }
 }
@@ -8135,6 +8290,7 @@ declare module qx.ui.virtual.cell {
         getStylesheet(): StyleSheet;
         getCssClass(key: qx.ui.virtual.cell.String): string | null;
         computeClassForStyles(key: qx.ui.virtual.cell.String, styleString: qx.ui.virtual.cell.String): qx.ui.virtual.cell.String;
+        destruct(): void;
 
     }
 }
@@ -8181,6 +8337,7 @@ declare module qx.ui.virtual.layer {
         getRenderedCellWidget(row: number, column: number): qx.ui.core.LayoutItem | null;
         protected _getSpacer(): qx.ui.core.Spacer;
         protected _activateNotEmptyChild(elementToPool: qx.ui.core.Widget): void;
+        destruct(): void;
 
     }
 }
@@ -8201,6 +8358,7 @@ declare module qx.ui.virtual.layer {
         protected _getSingleCellBounds(cell: IMap, firstVisibleRow: IMap, firstVisibleColumn: IMap): IMap;
         getCellBounds(cells: IMap[], firstVisibleRow: IMap, firstVisibleColumn: IMap): IMap[];
         computeCellSpanMap(cells: IMap[], firstRow: number, firstColumn: number, rowCount: number, columnCount: number): IMap[][];
+        destruct(): void;
 
     }
 }
@@ -8218,6 +8376,7 @@ declare module qx.ui.virtual.layer {
         getDefaultLineSize(): number;
         setDefaultLineSize(value: number): void;
         resetDefaultLineSize(): void;
+        destruct(): void;
 
     }
 }
@@ -8237,6 +8396,7 @@ declare module qx.ui.virtual.layer {
         getRenderedCellWidget(row: number, column: number): qx.ui.core.LayoutItem | null;
         setCellSpan(row: number, column: number, rowSpan: number, columnSpan: number): void;
         protected _getSpacer(): qx.ui.core.Spacer;
+        destruct(): void;
 
     }
 }
@@ -8261,6 +8421,7 @@ declare module qx.ui.virtual.layer {
         getColorOdd(): string;
         setColorOdd(value: string): void;
         resetColorOdd(): void;
+        destruct(): void;
 
     }
 }
@@ -8273,6 +8434,7 @@ declare module qx.ui.virtual.layer {
     class HtmlCell extends qx.ui.virtual.layer.Abstract {
         constructor(htmlCellProvider?: qx.ui.virtual.core.IHtmlCellProvider);
         protected _getCellSizeStyle(width: number, height: number, insetX: number, insetY: number): string;
+        destruct(): void;
 
     }
 }
@@ -8280,6 +8442,7 @@ declare module qx.ui.virtual.layer {
     class HtmlCellSpan extends qx.ui.virtual.layer.HtmlCell {
         constructor(htmlCellProvider?: qx.ui.virtual.core.IHtmlCellProvider, rowConfig?: qx.ui.virtual.core.Axis, columnConfig?: qx.ui.virtual.core.Axis);
         setCellSpan(row: number, column: number, rowSpan: number, columnSpan: number): void;
+        destruct(): void;
 
     }
 }
@@ -8295,6 +8458,7 @@ declare module qx.ui.virtual.layer {
         protected _updateLayerData(): void;
         protected _fullUpdate(firstRow: number, firstColumn: number, rowSizes: number[], columnSizes: number[]): void;
         protected _updateLayerWindow(firstRow: number, firstColumn: number, rowSizes: number[], columnSizes: number[]): void;
+        destruct(): void;
 
     }
 }
@@ -8341,6 +8505,7 @@ declare module qx.ui.virtual.selection {
         isQuickSelection(): boolean;
         setQuickSelection(value: boolean): void;
         resetQuickSelection(): void;
+        destruct(): void;
 
     }
 }
@@ -8360,6 +8525,7 @@ declare module qx.ui.virtual.selection {
         detachKeyEvents(target: qx.core.Object): void;
         attachListEvents(list: qx.core.Object): void;
         detachListEvents(list: qx.core.Object): void;
+        destruct(): void;
 
     }
 }
@@ -8522,6 +8688,7 @@ declare module qx.ui.menu {
         isBlockBackground(): boolean;
         setBlockBackground(value: boolean): void;
         resetBlockBackground(): void;
+        destruct(): void;
 
     }
 }
@@ -8546,6 +8713,7 @@ declare module qx.ui.menu {
         getArrowColumnWidth(): number;
         setArrowColumnWidth(value: number): void;
         resetArrowColumnWidth(): void;
+        destruct(): void;
 
     }
 }
@@ -8577,6 +8745,7 @@ declare module qx.ui.menu {
         protected _onKeyPressEnter(menu: qx.ui.menu.Menu, button: qx.ui.menu.AbstractButton, e: qx.event.type.KeySequence): void;
         protected _onKeyPressSpace(menu: qx.ui.menu.Menu, button: qx.ui.menu.AbstractButton, e: qx.event.type.KeySequence): void;
         protected _onRoll(e: qx.event.type.Roll): void;
+        destruct(): void;
 
     }
 }
@@ -8609,6 +8778,7 @@ declare module qx.ui.menu {
         isShowCommandLabel(): boolean;
         setShowCommandLabel(value: boolean): void;
         resetShowCommandLabel(): void;
+        destruct(): void;
 
     }
 }
@@ -8670,6 +8840,7 @@ declare module qx.ui.splitpane {
         getOrientation(): any;
         setOrientation(value: any): void;
         resetOrientation(): void;
+        destruct(): void;
 
     }
 }
@@ -8677,7 +8848,7 @@ declare module qx.ui.splitpane {
     class Blocker extends qx.html.Element {
         constructor(orientation?: string);
         protected _applyOrientation(): void;
-        setWidth(offset: number, spliterSize: number): void;
+        setWidth(...args: number[]): void;
         setHeight(offset: number, spliterSize: number): void;
         setLeft(offset: number, splitterLeft: number): void;
         setTop(offset: number, splitterTop: number): void;
@@ -8694,6 +8865,7 @@ declare module qx.ui.root {
         constructor(el?: HTMLElement, dynamicX?: boolean, dynamicY?: boolean);
         protected _onResize(e: qx.event.type.Event): void;
         protected _onWindowResize(): void;
+        destruct(): void;
 
     }
 }
@@ -8701,6 +8873,7 @@ declare module qx.ui.root {
     class Application extends qx.ui.root.Abstract {
         constructor(doc?: Document);
         protected _onResize(e: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -8756,12 +8929,14 @@ declare module qx.ui.root {
         isNativeHelp(): boolean;
         setNativeHelp(value: boolean): void;
         resetNativeHelp(): void;
+        destruct(): void;
 
     }
 }
 declare module qx.ui.root {
     class Page extends qx.ui.root.Abstract {
         constructor(doc?: Document);
+        destruct(): void;
 
     }
 }
@@ -8775,6 +8950,7 @@ declare module qx.ui.command {
         block(): void;
         unblock(): void;
         protected _getGroup(group: qx.ui.command.Group): any;
+        destruct(): void;
 
     }
 }
@@ -8811,6 +8987,7 @@ declare module qx.ui.command {
         getMenu(): qx.ui.menu.Menu;
         setMenu(value: qx.ui.menu.Menu): void;
         resetMenu(): void;
+        destruct(): void;
 
     }
 }
@@ -8824,6 +9001,7 @@ declare module qx.ui.command {
         isActive(): boolean;
         setActive(value: boolean): void;
         resetActive(): void;
+        destruct(): void;
 
     }
 }
@@ -8878,6 +9056,7 @@ declare module qx.ui.control {
         getMaxValue(): Date;
         setMaxValue(value: Date): void;
         resetMaxValue(): void;
+        destruct(): void;
 
     }
 }
@@ -8965,6 +9144,7 @@ declare module qx.ui.control {
         getBlue(): number;
         setBlue(value: number): void;
         resetBlue(): void;
+        destruct(): void;
 
     }
 }
@@ -9204,6 +9384,7 @@ declare module qx.bom {
         stopWatchPosition(): void;
         protected _successHandler(position: {}): void;
         protected _errorHandler(error: {}): void;
+        destruct(): void;
 
     }
 }
@@ -9211,6 +9392,7 @@ declare module qx.bom {
     class NativeHistory extends qx.bom.History implements qx.core.IDisposable {
         dispose(): void;
         protected _writeState(state: qx.bom.String): void;
+        destruct(): void;
 
     }
 }
@@ -9525,6 +9707,7 @@ declare module qx.bom {
         postMessage(msg: qx.bom.String): void;
         protected _handleMessage(e: qx.bom.Event): void;
         protected _handleError(e: qx.bom.Event): void;
+        destruct(): void;
 
     }
 }
@@ -9671,6 +9854,7 @@ declare module qx.bom {
         protected _handleAbort(e: {}): void;
         protected _handleLoad(e: {}): void;
         protected _handleLoadEnd(e: {}): void;
+        destruct(): void;
 
     }
 }
@@ -9685,6 +9869,7 @@ declare module qx.bom {
 declare module qx.bom {
     class HashHistory extends qx.bom.History implements qx.core.IDisposable {
         dispose(): void;
+        destruct(): void;
 
     }
 }
@@ -9715,6 +9900,7 @@ declare module qx.bom.webfonts {
         getTimeout(): number;
         setTimeout(value: number): void;
         resetTimeout(): void;
+        destruct(): void;
 
     }
 }
@@ -9740,6 +9926,7 @@ declare module qx.bom.webfonts {
         remove(familyName: string, fontWeight: string, fontStyle: string): void;
         getPreferredFormats(): string[];
         removeStyleSheet(): void;
+        destruct(): void;
 
     }
 }
@@ -9759,6 +9946,7 @@ declare module qx.bom {
     class IframeHistory extends qx.bom.History implements qx.core.IDisposable {
         dispose(): void;
         protected _setState(state: qx.bom.String): void;
+        destruct(): void;
 
     }
 }
@@ -9927,6 +10115,7 @@ declare module qx.bom {
         isAutoRepeat(): boolean;
         setAutoRepeat(value: boolean): void;
         resetAutoRepeat(): void;
+        destruct(): void;
 
     }
 }
@@ -10302,7 +10491,7 @@ declare module qx.bom.media {
     class Video extends qx.bom.media.Abstract {
         constructor(source?: string);
         getWidth(): number;
-        setWidth(value: number): void;
+        setWidth(...args: number[]): void;
         getHeight(): number;
         setHeight(value: number): void;
         getVideoWidth(): number;
@@ -10357,6 +10546,7 @@ declare module qx.bom.media {
         protected _handleVolumeChangeEvent(): void;
         protected _handleLoadedDataEvent(): void;
         protected _handleLoadedMetaDataEvent(): void;
+        destruct(): void;
 
     }
 }
@@ -10599,6 +10789,7 @@ declare module qx.core {
         protected _disposeSingletonObjects(...varargs: any[]): void;
         protected _disposeArray(field: string): void;
         protected _disposeMap(field: string): void;
+        destruct(): void;
 
     }
 }
@@ -10767,6 +10958,7 @@ declare module qx.util {
         schedule(deferredCall: qx.util.DeferredCall): void;
         refreshTimeout(): void;
         cancel(deferredCall: qx.util.DeferredCall): void;
+        destruct(): void;
 
     }
 }
@@ -10822,6 +11014,7 @@ declare module qx.util {
         getSize(): number;
         setSize(value: number): void;
         resetSize(): void;
+        destruct(): void;
 
     }
 }
@@ -10938,6 +11131,7 @@ declare module qx.util.format {
         getLocale(): string;
         setLocale(value: string): void;
         resetLocale(): void;
+        destruct(): void;
 
     }
 }
@@ -10986,6 +11180,7 @@ declare module qx.util {
         cancel(): void;
         schedule(): void;
         call(): void;
+        destruct(): void;
 
     }
 }
@@ -11082,6 +11277,7 @@ declare module qx.util.placement {
         getAlign(): any;
         setAlign(value: any): void;
         resetAlign(): void;
+        destruct(): void;
 
     }
 }
@@ -11335,7 +11531,7 @@ declare module qx.module {
         hide(): any;
         getPosition(): IMap;
         getOffset(mode?: string): IMap;
-        setStyle(name: string, value: any): any;
+        setStyle(...args: any[]): void;
         getStyle(name: string): any;
         setStyles(styles: IMap): any;
         getStyles(names: string[]): IMap;
@@ -11627,6 +11823,7 @@ declare module qx.io.transport {
         resetEndpoint(): void;
         constructor(url?: string);
         protected _createTransportImpl(): WebSocket;
+        destruct(): void;
 
     }
 }
@@ -11888,6 +12085,7 @@ declare module qx.io.request {
         getAuthentication(): qx.io.request.authentication.IAuthentication;
         setAuthentication(value: qx.io.request.authentication.IAuthentication): void;
         resetAuthentication(): void;
+        destruct(): void;
 
     }
 }
@@ -12008,6 +12206,7 @@ declare module qx.io.rest {
         protected _getRequestConfig(action: string, params: IMap): IMap;
         protected _getThrottleLimit(): number;
         protected _getThrottleCount(): number;
+        destruct(): void;
 
     }
 }
@@ -12015,7 +12214,7 @@ declare module qx.html {
     class Canvas extends qx.html.Element {
         constructor(styles?: IMap, attributes?: IMap);
         getCanvas(): qx.html.Element;
-        setWidth(width: number): void;
+        setWidth(...args: number[]): void;
         getWidth(): number;
         setHeight(height: number): void;
         getHeight(): number;
@@ -12141,6 +12340,7 @@ declare module qx.html {
         isVisible(): boolean;
         setVisible(value: boolean): void;
         resetVisible(): void;
+        destruct(): void;
 
     }
 }
@@ -12164,6 +12364,7 @@ declare module qx.html {
         useMarkup(): void;
         setText(value?: string, direct?: boolean): void;
         getText(): string;
+        destruct(): void;
 
     }
 }
@@ -12225,7 +12426,7 @@ declare module qx.html {
         deactivate(): void;
         capture(containerCapture?: boolean): void;
         releaseCapture(): void;
-        setStyle(key: string, value: any, direct?: boolean): qx.html.Element;
+        setStyle(...args: any[]): void;
         protected _applyStyle(key: string, value?: string, oldValue?: string): void;
         setStyles(map: IMap, direct?: boolean): qx.html.Element;
         removeStyle(key: string, direct?: boolean): qx.html.Element;
@@ -12244,6 +12445,7 @@ declare module qx.html {
         getCssClass(): string;
         setCssClass(value: string): void;
         resetCssClass(): void;
+        destruct(): void;
 
     }
 }
@@ -12628,6 +12830,7 @@ declare module qx.theme.manager {
         getTheme(): qx.Theme;
         setTheme(value: qx.Theme): void;
         resetTheme(): void;
+        destruct(): void;
 
     }
 }
@@ -12659,6 +12862,7 @@ declare module qx.theme.manager {
         getTheme(): qx.Theme;
         setTheme(value: qx.Theme): void;
         resetTheme(): void;
+        destruct(): void;
 
     }
 }
@@ -12798,6 +13002,7 @@ declare module qx {
         protected _callIterableMethod(): void;
         protected _callMethod(): void;
         toPromise(): void;
+        destruct(): void;
 
     }
 }
@@ -13030,6 +13235,7 @@ declare module qx.dev {
         getFakeServer(): {};
         restore(): void;
         protected _getRegExp(pattern: string): RegExp;
+        destruct(): void;
 
     }
 }
@@ -13213,6 +13419,7 @@ declare module qx.data {
         removeRelatedBindings(relatedObject: qx.core.Object): void;
         removeAllBindings(): void;
         getBindings(): qx.data.Array;
+        destruct(): void;
 
     }
 }
@@ -13265,6 +13472,7 @@ declare module qx.data {
         isAutoDisposeItems(): boolean;
         setAutoDisposeItems(value: boolean): void;
         resetAutoDisposeItems(): void;
+        destruct(): void;
 
     }
 }
@@ -13337,6 +13545,7 @@ declare module qx.data.controller {
         getSelection(): qx.data.Array;
         setSelection(value: qx.data.Array): void;
         resetSelection(): void;
+        destruct(): void;
 
     }
 }
@@ -13349,6 +13558,7 @@ declare module qx.data.controller {
         getModel(): qx.core.Object;
         setModel(value: qx.core.Object): void;
         resetModel(): void;
+        destruct(): void;
 
     }
 }
@@ -13432,6 +13642,7 @@ declare module qx.data.controller {
         getNullValueIcon(): string;
         setNullValueIcon(value: string): void;
         resetNullValueIcon(): void;
+        destruct(): void;
 
     }
 }
@@ -13450,6 +13661,7 @@ declare module qx.data.controller {
         getTarget(): qx.ui.form.Form;
         setTarget(value: qx.ui.form.Form): void;
         resetTarget(): void;
+        destruct(): void;
 
     }
 }
@@ -13508,6 +13720,7 @@ declare module qx.data.controller {
         getDelegate(): any;
         setDelegate(value: any): void;
         resetDelegate(): void;
+        destruct(): void;
 
     }
 }
@@ -13551,6 +13764,7 @@ declare module qx.data.store {
         getUrl(): string;
         setUrl(value: string): void;
         resetUrl(): void;
+        destruct(): void;
 
     }
 }
@@ -13566,6 +13780,7 @@ declare module qx.data.store {
         getModel(): any;
         setModel(value: any): void;
         resetModel(): void;
+        destruct(): void;
 
     }
 }
@@ -13579,6 +13794,7 @@ declare module qx.data.store {
         getModel(): any;
         setModel(value: any): void;
         resetModel(): void;
+        destruct(): void;
 
     }
 }
@@ -13620,6 +13836,7 @@ declare module qx.event.handler {
         getFocus(): any;
         setFocus(value: any): void;
         resetFocus(): void;
+        destruct(): void;
 
     }
 }
@@ -13647,6 +13864,7 @@ declare module qx.event.handler {
         dispose(): void;
         constructor(manager?: qx.event.Manager);
         protected _onInterval(e: qx.event.type.Data): void;
+        destruct(): void;
 
     }
 }
@@ -13679,6 +13897,7 @@ declare module qx.event.handler {
         protected _stopKeyObserver(): void;
         protected _idealKeyHandler(keyCode: string, charCode: string, eventType: string, domEvent: qx.event.handler.Element): qx.Promise | null;
         protected _identifierToKeyCode(keyIdentifier: string): number;
+        destruct(): void;
 
     }
 }
@@ -13696,6 +13915,7 @@ declare module qx.event.handler {
         registerEvent(target: any, type: string, capture: boolean): void;
         unregisterEvent(target: any, type: string, capture: boolean): void;
         constructor(manager?: qx.event.Manager);
+        destruct(): void;
 
     }
 }
@@ -13774,6 +13994,7 @@ declare module qx.event.handler {
         getCursor(): qx.ui.core.Widget;
         setCursor(value: qx.ui.core.Widget): void;
         resetCursor(): void;
+        destruct(): void;
 
     }
 }
@@ -13792,6 +14013,7 @@ declare module qx.event.handler {
         protected _stopObserver(): void;
         protected _onNativeLoad(): void;
         protected _onNativeUnload(): void;
+        destruct(): void;
 
     }
 }
@@ -13805,6 +14027,7 @@ declare module qx.event.handler {
         protected _initWindowObserver(): void;
         protected _stopWindowObserver(): void;
         protected _onNative(): void;
+        destruct(): void;
 
     }
 }
@@ -13843,6 +14066,7 @@ declare module qx.event.handler {
         protected _stopButtonObserver(): void;
         protected _stopMoveObserver(): void;
         protected _stopWheelObserver(): void;
+        destruct(): void;
 
     }
 }
@@ -13854,6 +14078,7 @@ declare module qx.event.handler {
         dispose(): void;
         constructor(manager?: qx.event.Manager);
         static refresh(): void;
+        destruct(): void;
 
     }
 }
@@ -13864,6 +14089,7 @@ declare module qx.event.handler {
         unregisterEvent(target: any, type: string, capture: boolean): void;
         dispose(): void;
         constructor(manager?: qx.event.Manager);
+        destruct(): void;
 
     }
 }
@@ -13874,6 +14100,7 @@ declare module qx.event.handler {
         protected _initObserver(): void;
         protected _stopObserver(): void;
         protected _onNative(domEvent: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -13887,6 +14114,7 @@ declare module qx.event.handler {
         protected _initObserver(): void;
         protected _stopObserver(): void;
         isOnline(): boolean;
+        destruct(): void;
 
     }
 }
@@ -13916,6 +14144,7 @@ declare module qx.event.handler {
         unregisterEvent(target: any, type: string, capture: boolean): void;
         dispose(): void;
         constructor(manager?: qx.event.Manager);
+        destruct(): void;
 
     }
 }
@@ -13929,6 +14158,7 @@ declare module qx.event.handler {
         protected _initObserver(): void;
         protected _stopObserver(): void;
         protected _onOrientationChange(domEvent: qx.event.type.Event): void;
+        destruct(): void;
 
     }
 }
@@ -13980,6 +14210,7 @@ declare module qx.event {
         getDecrease(): number;
         setDecrease(value: number): void;
         resetDecrease(): void;
+        destruct(): void;
 
     }
 }
@@ -14081,6 +14312,7 @@ declare module qx.event.message {
         getSender(): {};
         setSender(value: {}): void;
         resetSender(): void;
+        destruct(): void;
 
     }
 }
@@ -14103,6 +14335,7 @@ declare module qx.event {
         getInterval(): number;
         setInterval(value: number): void;
         resetInterval(): void;
+        destruct(): void;
 
     }
 }
@@ -14115,6 +14348,7 @@ declare module qx.event {
         getTimeoutInterval(): number;
         setTimeoutInterval(value: number): void;
         resetTimeoutInterval(): void;
+        destruct(): void;
 
     }
 }

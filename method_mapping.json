@@ -2,5 +2,7 @@
     "setPadding" : "setPadding(...args: number[]): void",
     "setMargin" : "setMargin(...args: number[]): void",
     "setContentPadding": "setContentPadding(...args: number[]): void",
-    "setOverflow": "setOverflow(...args: string[]): void"
+    "setOverflow": "setOverflow(...args: string[]): void",
+    "setWidth": "setWidth(...args: number[]): void",
+    "setStyle": "setStyle(...args: any[]): void"
 }

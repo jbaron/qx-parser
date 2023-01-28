@@ -32,6 +32,7 @@ interface Param {
     paramName: string,
     type: string | Array<string>,
     optional?: boolean,
+    defaultValue?: string,
 }
 
 interface Return {
@@ -86,6 +87,7 @@ interface API {
     members?: Map<string, Member>;
     statics?:  Map<string, Member>;
     aliases?: any;
+    destruct?: any;
 }
 
 enum ClassType {
@@ -316,13 +318,23 @@ class Parser {
         write(");\n");
     }
 
-       /**
-        * Write any aliases properties
-        */
-       writeAliases(d: API) {
+    /**
+     * Write any aliases properties
+     */
+    writeAliases(d: API) {
         if (! d.aliases) return
         write(indent + "static aliases: any;\n");
     }
+
+     /**
+     * Write destructor
+     */
+     writeDestructor(d: API) {
+        if (! d.destruct) return
+        write(indent + "destruct(): void;\n");
+    }
+
+    
 
     /**
      * Utility function to find the child of a certain type
@@ -478,13 +490,14 @@ class Parser {
             write("..." + p.paramName);
         } else {    
             write(p.paramName || "param" + index);
-            if (p.optional || forceOptional) write("?");
+            if (p.optional || forceOptional || p.defaultValue) write("?");
         }
         write(":");
         let type = this.getType(p.type)
         write(this.cleanType(type));
         
         if (p.paramName == "varargs") write("[]");
+        // if (p.defaultValue) write(" = " + p.defaultValue)
         return p.optional || forceOptional;
     }
 
@@ -613,6 +626,7 @@ class Parser {
         this.writeConstructor(d);
         this.writeStatics(d);
         this.writeMethods(d);
+        this.writeDestructor(d);
         write("\n}\n");
     }
 
