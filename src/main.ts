@@ -16,6 +16,7 @@ class Types {
     static Types = "types";
     static Entry = "entry";
     static Param = "param";
+    static Variable = "variable";
 }
 
 
@@ -399,7 +400,18 @@ class Parser {
                 this.writeReturnType(m.jsdoc);
                 write("\n");
                 // }
+            
             }
+
+            if (m.type === Types.Variable) {
+                let modifier = "";
+                if (m.access) {
+                    if (m.access === "protected") modifier = "protected ";
+                    if (m.access === "private") return;
+                }
+                write(indent + modifier + "static " + name + ":any;\n");
+            }
+
         });
     }
 
