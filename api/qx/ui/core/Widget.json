@@ -8805,7 +8805,7 @@
         "@param": [
           {
             "name": "@param",
-            "type": "Decorator",
+            "type": "Decorator|string",
             "paramName": "value",
             "desc": "Value for decorator"
           }

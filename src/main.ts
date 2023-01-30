@@ -404,6 +404,7 @@ class Parser {
             }
 
             if (m.type === Types.Variable) {
+                if (d.type === "interface") return;
                 let modifier = "";
                 if (m.access) {
                     if (m.access === "protected") modifier = "protected ";
